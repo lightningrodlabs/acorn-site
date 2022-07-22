@@ -3,7 +3,8 @@ import type { GatsbyConfig } from "gatsby";
 const config: GatsbyConfig = {
   siteMetadata: {
     title: `acorn-site`,
-    siteUrl: `https://www.yourdomain.tld`
+    siteUrl: `https://www.acorn.software`,
+    description: `Acorn is an open-source, peer-to-peer project management application. It is designed and built as a scrum-alternative, Agile Development Pattern for distributed software development teams.`
   },
   // More easily incorporate content into your pages through automatic TypeScript type generation and better GraphQL IntelliSense.
   // If you use VSCode you can also use the GraphQL plugin
@@ -16,7 +17,17 @@ const config: GatsbyConfig = {
       "path": "./src/images/"
     },
     __key: "images"
-  }]
+  },
+// react svg plugin
+  {
+  resolve: 'gatsby-plugin-react-svg',
+    options: {
+      rule: {
+       include: /svgs/
+      }
+    }
+  },]
+  
 };
 
 export default config;

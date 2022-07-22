@@ -1,0 +1,755 @@
+@import "mixin";
+
+:root {
+  // color names from https://www.color-name.com
+
+  // color
+  --color-bg: #f2efec;
+  --color-bg-semi-transparent: #f2efec7b; //(50% opacity)
+  --color-glow: #ebebeb30; //Gallery (20% opacity)
+  --color-glow-hover: #ebebeb5a; //Gallery (40% opacity)
+  --color-tag-bg-1: #1da094;
+  --color-tag-bg-2: #5f71f4;
+  --color-tag-bg-2: #b45c1c;
+
+  --color-bg-feature-1: #ebe9ed;
+  --color-bg-feature-2: #e7eae2;
+  --color-bg-feature-3: #f0ede8;
+  --color-bg-feature-4: #f0e8e1;
+
+  --color-text-h1: #222222;
+  --color-text-h2: #000000;
+  --color-text-h3: #f8bc5c; //Rajah
+  --color-text-h4: #f5d095; //Manhattan
+  --color-text-h5: #f5d095; //Manhattan
+  --color-text-p: #4b4b4b;
+  --color-text-caption: #d8d8d8; //Alto
+  --color-text-glow: #ebebeb3e; //Gallery (20% opacity)
+  --color-text-glow-50: #ebebeb70; //Gallery (50% opacity)
+  --color-text-tag: #ffffff;
+
+  --color-text-link-primary: #e6a1e5; //Medium Lavender Magenta
+  --color-text-link-secondary: #f8cd7b; //Granny Smith Apple
+
+  --color-button-primary: #00918a; //Persian Green
+  --color-button-secondary: #f4ede72c; //Dawn Pink (20% opacity)
+
+  --color-social-links: #d4bff7; //Bright lavendar
+
+  // typography
+  --font-family-primary-extrabold: "PlusJakartaSans-ExtraBold", sans-serif;
+  --font-family-primary-bold: "PlusJakartaSans-Bold", sans-serif;
+  --font-family-primary-semibold: "PlusJakartaSans-SemiBold", sans-serif;
+  --font-family-primary-medium: "PlusJakartaSans-Medium", sans-serif;
+  --font-family-primary-regular: "PlusJakartaSans-Regular", sans-serif;
+  --font-family-heading: "Gilroy-ExtraBold", sans-serif;
+}
+
+/*=============================================>>>>>
+= Typography (fonts) =
+===============================================>>>>>*/
+/* Gilroy Extrabold */
+/* https://www.tinkov.info/gilroy.html */
+
+@font-face {
+  font-family: "Gilroy-ExtraBold";
+  font-display: swap;
+  /* it works like this if the file sits in dist and doesn't load through webpack */
+  /* src: url('fonts/GilroyExtrabold.woff2') format('truetype'); */
+
+  /* it works like this if used in webpack */
+  src: url("./fonts/Gilroy-ExtraBold.woff2") format("truetype");
+}
+
+/* Plus Jakarta Sans */
+/* https://tokotype.github.io/plusjakarta-sans/ */
+
+@font-face {
+  font-family: "PlusJakartaSans-Regular";
+  font-display: swap;
+  /* it works like this if the file sits in dist and doesn't load through webpack */
+  /* src: url('fonts/PlusJakartaSans-Regular.woff2') format('truetype'); */
+
+  /* it works like this if used in webpack */
+  src: url("./fonts/PlusJakartaSans-Regular.woff2") format("truetype");
+}
+
+@font-face {
+  font-family: "PlusJakartaSans-Medium";
+  font-display: swap;
+  /* it works like this if the file sits in dist and doesn't load through webpack */
+  /* src: url('fonts/PlusJakartaSans-Medium.woff2') format('truetype'); */
+
+  /* it works like this if used in webpack */
+  src: url("./fonts/PlusJakartaSans-Medium.woff2") format("truetype");
+}
+
+@font-face {
+  font-family: "PlusJakartaSans-SemiBold";
+  font-display: swap;
+  /* it works like this if the file sits in dist and doesn't load through webpack */
+  /* src: url('fonts/PlusJakartaSans-SemiBold.woff2') format('truetype'); */
+
+  /* it works like this if used in webpack */
+  src: url("./fonts/PlusJakartaSans-SemiBold.woff2") format("truetype");
+}
+
+@font-face {
+  font-family: "PlusJakartaSans-Bold";
+  font-display: swap;
+  /* it works like this if the file sits in dist and doesn't load through webpack */
+  /* src: url('fonts/PlusJakartaSans-Bold.woff2') format('truetype'); */
+
+  /* it works like this if used in webpack */
+  src: url("./fonts/PlusJakartaSans-Bold.woff2") format("truetype");
+}
+
+@font-face {
+  font-family: "PlusJakartaSans-ExtraBold";
+  font-display: swap;
+  /* it works like this if the file sits in dist and doesn't load through webpack */
+  /* src: url('fonts/PlusJakartaSans-ExtraBold.woff2') format('truetype'); */
+
+  /* it works like this if used in webpack */
+  src: url("./fonts/PlusJakartaSans-ExtraBold.woff2") format("truetype");
+}
+
+/*=============================================>>>>>
+= Other =
+===============================================>>>>>*/
+
+* {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-smooth: always;
+}
+
+body {
+  margin: 0;
+  background-color: var(--color-bg);
+}
+
+main {
+  padding: 1rem;
+  // display: flex;
+  // flex-direction: column;
+  width: 100vw;
+  box-sizing: border-box;
+
+  @include media-up(desktop) {
+    align-items: center;
+  }
+}
+
+a {
+  cursor: pointer;
+}
+
+h1 {
+  font-family: var(--font-family-heading), sans-serif;
+  color: var(--color-text-h1);
+  font-size: 3.25rem;
+  line-height: 1.25;
+  text-shadow: 0 0 1rem var(--color-glow);
+  letter-spacing: -0.01rem;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  @include media-down(tablet) {
+    font-size: 2.75rem;
+  }
+
+  @include media-down(mobile) {
+    font-size: 2.25rem;
+  }
+}
+
+h2 {
+  font-family: var(--font-family-heading), sans-serif;
+  color: var(--color-text-h2);
+  font-size: 2.5rem;
+  line-height: 1.25;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  @include media-down(tablet) {
+    font-size: 2rem;
+  }
+}
+
+h3 {
+  font-family: var(--font-family-heading), sans-serif;
+  color: var(--color-text-h1);
+  font-size: 2rem;
+  line-height: 1.33;
+
+  @include media-down(tablet) {
+    font-size: 1.375rem;
+  }
+}
+
+// assign h4
+h4 {
+  font-family: PlusJakartaSans, sans-serif;
+  font-weight: 700;
+  font-variation-settings: "wght" 700;
+  color: var(--color-text-h3);
+  font-size: 1.5rem;
+  line-height: 1.45;
+}
+
+h5 {
+  font-family: PlusJakartaSans, sans-serif;
+  font-weight: 500;
+  font-variation-settings: "wght" 500;
+  color: var(--color-text-h5);
+  font-size: 1.25rem;
+  line-height: 1.45;
+
+  @include media-down(mobile) {
+    font-size: 1.125rem;
+  }
+}
+
+p {
+  font-family: var(--font-family-primary-medium), sans-serif;
+  color: var(--color-text-p);
+  font-size: 1.325rem;
+  line-height: 1.75;
+  max-width: 54rem;
+  word-spacing: 0.01rem;
+
+  @include media-down(mobile) {
+    font-size: 1.05rem;
+  }
+
+  b {
+    font-weight: 900;
+    font-variation-settings: "wght" 900;
+  }
+
+  a {
+    cursor: pointer;
+    transition: 0.2s all ease;
+    &:hover {
+      text-shadow: 0 0 0.5rem var(--color-text-glow);
+      text-decoration: underline;
+    }
+  }
+
+  ol {
+    padding-left: 1.875rem;
+
+    li {
+      list-style-type: "🌱  ";
+      margin-bottom: 0.5rem;
+    }
+  }
+}
+
+.link {
+  font-family: PlusJakartaSans, sans-serif;
+  font-weight: 700;
+  font-variation-settings: "wght" 700;
+  text-decoration: none;
+  transition: 0.2s text-decoration ease;
+
+  &:hover {
+    text-decoration: underline;
+  }
+
+  &.primary {
+    color: var(--color-text-link-primary);
+  }
+
+  &.secondary {
+    color: var(--color-text-link-secondary);
+  }
+}
+
+.caption {
+  font-family: PlusJakartaSans, sans-serif;
+  font-weight: 600;
+  font-variation-settings: "wght" 600;
+  color: var(--color-text-caption);
+  font-size: 1.375rem;
+  line-height: 1.45;
+  margin: 0.5rem 0;
+}
+
+.section {
+  min-height: 100vh;
+  // max-width: 72rem;
+  display: flex;
+  flex-direction: column;
+  padding: 6rem 3rem;
+  box-sizing: border-box;
+
+  @include media-up(desktop) {
+    // width: 72rem;
+    // padding: 0 3rem;
+    justify-content: center;
+  }
+
+  @include media-down(tablet) {
+    // margin: 0 3rem;
+    min-height: unset;
+    padding: 5rem 0 4rem 0;
+  }
+
+  @include media-down(mobile) {
+    // margin: 0 1rem;
+    min-height: unset;
+    padding: 4rem 0;
+  }
+
+  h2 {
+    margin-top: 1rem;
+  }
+
+  .glow-wrapper {
+    box-shadow: 0 0 2rem var(--color-glow);
+    border-radius: 1rem;
+    padding: 2rem 2.5rem;
+    background-color: var(--color-bg-semi-transparent);
+
+    @include media-down(mobile) {
+      padding: 1.5rem;
+    }
+
+    &.small {
+      padding: 1rem;
+    }
+  }
+
+  .get-involved-subsection {
+    margin: 0 3rem;
+  }
+}
+
+.columns-wrapper {
+  display: flex;
+  flex-direction: row;
+
+  &.two-third {
+  }
+
+  &.one-third {
+    @include media-down(tablet) {
+      flex-direction: column;
+    }
+    .glow-wrapper {
+      width: 33.33%;
+      box-sizing: border-box;
+
+      &:not(:last-child) {
+        margin-right: 2rem;
+      }
+
+      @include media-down(tablet) {
+        width: 100%;
+        margin-right: 0;
+        margin-bottom: 1.5rem;
+      }
+    }
+  }
+
+  &.half {
+    @include media-down(mobile) {
+      flex-direction: column;
+    }
+    .glow-wrapper {
+      width: 50%;
+      box-sizing: border-box;
+
+      @include media-down(mobile) {
+        width: 100%;
+      }
+
+      &:not(:last-child) {
+        margin-right: 2rem;
+      }
+
+      @include media-down(mobile) {
+        margin-right: 0;
+        margin-bottom: 1.5rem;
+      }
+    }
+  }
+}
+
+// Hero
+
+.section.hero {
+  flex-direction: row;
+  align-items: center;
+  justify-content: left;
+  flex: 1 1;
+  padding-top: 2rem;
+  margin-left: 0;
+
+  .hero-content-wrapper {
+    flex: 1;
+    padding-top: 4rem;
+
+    .tags {
+      display: flex;
+      flex-direction: row;
+      width: 100%;
+      flex-wrap: wrap;
+
+      .tag-wrapper {
+        background-color: var(--color-tag-bg-1);
+        padding: 0.25rem 0.625rem 0.325rem 0.625rem;
+        font-family: var(--font-family-primary-bold), sans-serif;
+        color: var(--color-text-tag);
+        font-size: 0.8rem;
+        border-radius: 0.375rem;
+        width: fit-content;
+        white-space: wrap;
+        min-width: fit-content;
+
+        &:not(:last-child) {
+          margin-right: 0.375rem;
+        }
+
+        @include media-down(mobile) {
+          margin-bottom: 0.5rem;
+        }
+      }
+    }
+
+    h1 {
+      margin-top: 1rem;
+      margin-bottom: 1.5rem;
+    }
+  }
+
+  .hero-visual-wrapper {
+    flex: 1;
+    margin-right: 4rem;
+    box-sizing: border-box;
+    padding-bottom: 2rem;
+
+    .hero-visual {
+      max-height: 100%;
+      max-width: 100%;
+    }
+    .hero-visual-mobile {
+      display: none;
+    }
+  }
+
+  @include media-down(tablet) {
+    flex-direction: column;
+    padding-top: 0;
+    .hero-visual-wrapper {
+      margin: 0;
+      width: 100%;
+
+      .hero-visual {
+        display: none;
+      }
+
+      .hero-visual-mobile {
+        display: flex;
+        max-height: 100%;
+        max-width: 100%;
+      }
+    }
+
+    .tags {
+      display: none;
+    }
+
+    .hero-content-wrapper {
+      margin-top: 2rem;
+    }
+  }
+
+  .glow-wrapper {
+    max-width: 40rem;
+    min-width: 34rem;
+    margin-right: 1.5rem;
+
+    @include media-up(desktop) {
+      flex: 1;
+      min-width: 38rem;
+      margin-right: 2rem;
+    }
+
+    @include media-down(tablet) {
+      width: 100%;
+      margin-right: 0;
+      max-width: unset;
+      min-width: unset;
+
+      p {
+        max-width: 33rem;
+      }
+    }
+
+    @include media-down(mobile) {
+      .buttons-row {
+        flex-direction: column;
+
+        .button-wrapper {
+          width: fit-content;
+
+          &:not(:last-child) {
+            margin-bottom: 1rem;
+          }
+        }
+      }
+    }
+  }
+}
+
+// About (Features)
+
+.section.about {
+  background-color: var(--color-bg-feature-1);
+  position: sticky;
+  position: -webkit-sticky;
+  top: 0;
+
+  .section-heading {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    margin-bottom: 3rem;
+
+    h2 {
+      margin-bottom: 1rem;
+      text-align: center;
+    }
+    p {
+      margin-top: 0;
+      text-align: center;
+    }
+  }
+
+  // About Acorn Feature
+
+  .about-acorn-features-wrapper {
+    position: relative;
+
+    .about-acorn-feature-wrapper {
+      position: absolute;
+      opacity: 0;
+      top: 0;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      width: 100%;
+
+      .acorn-feature-content-wrapper {
+        width: 50%;
+      }
+
+      .acorn-feature-visual-wrapper {
+        flex: 1;
+
+        .feature-visual {
+          max-width: 100%;
+          max-height: 100%;
+        }
+      }
+    }
+
+    .about-acorn-feature-animation-enter {
+      opacity: 0;
+    }
+    .about-acorn-feature-animation-enter-active {
+      opacity: 1;
+      transition: opacity 0.1s ease-in;
+    }
+    .about-acorn-feature-animation-enter-done {
+      opacity: 1;
+    }
+    .about-acorn-feature-animation-exit {
+      opacity: 1;
+    }
+    .about-acorn-feature-animation-exit-active {
+      opacity: 0;
+      transition: opacity 0.1s ease-out;
+    }
+  }
+}
+
+// Who
+
+.section.who {
+  h2 {
+    margin-bottom: 2.5rem;
+  }
+
+  .glow-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 4rem 3rem;
+
+    @include media-down(mobile) {
+      padding: 3rem 2rem;
+    }
+
+    p {
+      max-width: 24rem;
+    }
+
+    svg {
+      margin-bottom: 1rem;
+    }
+  }
+}
+
+// Roadmap
+
+.roadmap-subsection {
+  margin: 1.5rem 0;
+
+  h2 {
+    margin-top: 0;
+    margin-bottom: 1rem;
+  }
+
+  h5 {
+    margin-top: 0;
+    margin-bottom: 1.5rem;
+  }
+}
+
+.roadmap-visual-wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+
+  // svg {
+  //   width: 100%;
+  // }
+
+  &.horizontal {
+    justify-content: left;
+
+    @include media-down(mobile) {
+      display: none;
+    }
+  }
+
+  &.vertical {
+    justify-content: center;
+
+    @include media-up(mobile) {
+      display: none;
+    }
+  }
+}
+
+// Fund
+
+.section.fund {
+  .buttons-row {
+    margin-top: 1.5rem;
+  }
+
+  h2 {
+    @include media-down(tablet) {
+      margin-bottom: 1rem;
+    }
+  }
+
+  .mmr-progress {
+    width: 100%;
+
+    h3 {
+      margin-bottom: 0.625rem;
+    }
+
+    h5 {
+      margin-top: 0;
+    }
+
+    .funding-visual-wrapper {
+      svg {
+        g text {
+          -webkit-font-smoothing: antialiased;
+          -moz-osx-font-smoothing: grayscale;
+        }
+        @include media-down(tablet) {
+          width: 100%;
+        }
+      }
+      &.large {
+        margin: 2.5rem 0;
+        justify-content: left;
+
+        @include media-down(mobile) {
+          display: none;
+        }
+      }
+
+      &.small {
+        margin: 2rem 0;
+        @include media-up(mobile) {
+          display: none;
+        }
+      }
+    }
+  }
+}
+
+// Get involved
+
+.section.get-involved {
+  min-height: 50vh;
+  padding-bottom: 2rem;
+
+  @include media-up(desktop) {
+    width: 68rem;
+  }
+
+  @include media-down(tablet) {
+    min-height: unset;
+  }
+}
+
+// buttons
+
+.buttons-row {
+  display: flex;
+  flex-direction: row;
+  margin: 2.5rem 0 2rem 0;
+
+  a {
+    text-decoration: none;
+  }
+}
+
+// mobile menu
+
+.menu-mobile-icon {
+  z-index: 2;
+  display: none;
+  position: fixed;
+  right: 1rem;
+  top: 1rem;
+  z-index: 2;
+  cursor: pointer;
+  padding: 0.5rem;
+
+  svg {
+    width: 1.5rem;
+    height: 1.5rem;
+  }
+
+  &:hover {
+    opacity: 0.8;
+  }
+
+  @include media-down(tablet) {
+    display: block;
+  }
+}

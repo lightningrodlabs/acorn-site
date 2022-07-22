@@ -1,0 +1,91 @@
+@import "../../mixin";
+
+header {
+  padding: 0.5rem 2rem 0.5rem 0.25rem;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  flex: 1 auto 1;
+  position: fixed;
+  top: 0;
+  z-index: 2;
+  width: 100%;
+  box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  @include media-down(tablet) {
+    padding: 0;
+    width: 100vw;
+    box-sizing: border-box;
+  }
+
+  a.logo {
+    h1 {
+      margin: 0 0.25rem;
+      @include media-down(tablet) {
+        margin: 0.5rem;
+      }
+
+      svg {
+        filter feFlood {
+          flood-opacity: 0.3;
+          transition: 0.3s flood-opacity ease;
+        }
+
+        &:hover {
+          filter {
+            feFlood {
+              flood-opacity: 0.7;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  nav {
+    display: flex;
+    flex-direction: row;
+    align-items: space-around;
+
+    @include media-down(tablet) {
+      display: none;
+    }
+
+    li {
+      list-style: none;
+
+      a {
+        text-decoration: none;
+        font-family: var(--font-family-primary-bold), sans-serif;
+        color: var(--color-text-p);
+        font-size: 1.125rem;
+        cursor: pointer;
+        transition: 0.2s all ease;
+
+        &:not(:last-child) {
+          margin-right: 2.25rem;
+        }
+
+        svg {
+          margin-left: 0.25rem;
+          height: 1rem;
+          width: 1rem
+        }
+
+        &:hover {
+          text-shadow: 0 0 0.5rem var(--color-text-glow);
+          text-decoration: underline;
+        }
+      }
+    }
+  }
+
+  .social-links-wrapper {
+    @include media-down(tablet) {
+      display: none;
+    }
+  }
+}
