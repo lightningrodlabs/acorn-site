@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="209.109" height="64.198" viewBox="0 0 209.109 64.198">
+  <defs>
+    <style>
+      .logo-cls-1 {
+        opacity: 1;
+      }
+
+      .logo-cls-2 {
+        fill: #222;
+        font-size: 47px;
+      }
+
+      .logo-cls-2 {
+        font-family: Gilroy-ExtraBold, Gilroy;
+        font-weight: 800;
+      }
+
+      .logo-cls-3 {
+        fill: #15841d;
+        opacity: 0.131;
+      }
+
+      .logo-cls-4 {
+        fill: #727272;
+        font-size: 16px;
+        font-family: Plus Jakarta Sans;
+        font-weight: 500;
+      }
+
+      .logo-cls-5 {
+        fill: #505050;
+        font-size: 10px;
+        font-family: Plus Jakarta Sans;
+        font-weight: 500;
+      }
+    </style>
+  </defs>
+  <g id="acorn-alpha-logo" transform="translate(-52.877 -32.544)">
+    <g id="logo_placeholder" data-name="logo placeholder" class="logo-cls-1" transform="translate(52.877 32.544)">
+      <text id="acorn" class="logo-cls-2" transform="translate(0 45)"><tspan x="0" y="0">acorn</tspan></text>
+      <g id="Group_9" data-name="Group 9" transform="translate(134.274 20.014)">
+        <rect id="alpha-rec" data-name="alpha-rec" class="logo-cls-3" width="66" height="29.586" rx="4"/>
+        <text id="alpha" class="logo-cls-4" transform="translate(10.418 20.293)"><tspan x="0" y="0">alpha</tspan></text>
+      </g>
+    </g>
+    <text id="Powered_by_Holochian" data-name="Powered by Holochian" class="logo-cls-5" transform="translate(80 93.742)"><tspan x="0" y="0">Powered by Holochian</tspan></text>
+  </g>
+</svg>

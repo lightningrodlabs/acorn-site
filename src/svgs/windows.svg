@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="24.605" height="24.333" viewBox="0 0 24.605 24.333">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: none;
+        stroke: #000;
+        stroke-width: 2.5px;
+      }
+    </style>
+  </defs>
+  <g id="windows" transform="translate(1.25 1.253)">
+    <path id="windows-line-3" class="cls-1" d="M4,21.9V8.125a.829.829,0,0,1,.7-.819L25.148,4.111a.829.829,0,0,1,.957.819V25.1a.829.829,0,0,1-.957.819L4.7,22.722A.829.829,0,0,1,4,21.9Z" transform="translate(-4 -4.101)"/>
+    <path id="windows-line-2" class="cls-1" d="M4,12H26.1" transform="translate(-4 -1.087)"/>
+    <path id="windows-line-1" class="cls-1" d="M10.5,5.5V23.46" transform="translate(-1.52 -3.567)"/>
+  </g>
+</svg>

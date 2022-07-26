@@ -7,6 +7,10 @@ footer {
   padding: 2rem;
   margin-top: 2rem;
 
+  @include media-up(large) {
+    flex-direction: row;
+  }
+
   @include media-down(tablet) {
     padding: 1rem;
     align-items: center;
@@ -19,6 +23,11 @@ footer {
   }
 
   .footer-row {
+    p {
+      font-size: 1rem;
+      opacity: 0.9;
+    }
+
     &.first {
       display: flex;
       justify-content: left;
@@ -92,22 +101,6 @@ footer {
       }
     }
 
-    &.third {
-      margin-top: 1rem;
-      p {
-        font-size: 0.8rem;
-        opacity: 0.75;
-      }
-    }
-  }
-
-  p {
-    margin: 0 1rem 0 0;
-    font-size: 1rem;
-  }
-
-  a {
-    color: var(--color-text-p);
   }
 }
 
@@ -122,16 +115,14 @@ footer {
   a {
     cursor: pointer;
     transition: 0.2s all ease;
-    &:hover {
-      text-shadow: 0 0 0.5rem var(--color-text-glow);
-      text-decoration: underline;
-    }
+    // &:hover {
+    //   text-shadow: 0 0 0.5rem var( --color-text-social-links);
+    //   text-decoration: underline;
+    // }
 
     &.social-link {
-      font-family: PlusJakartaSans, sans-serif;
-      font-weight: 500;
-      font-variation-settings: "wght" 500;
-      color: var(--color-social-links);
+      font-family: var(--font-family-primary-bold);
+      color: var(--color-text-social-links);
       font-size: 1rem;
       text-decoration: none;
 

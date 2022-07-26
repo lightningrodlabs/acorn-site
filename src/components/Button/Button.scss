@@ -6,54 +6,76 @@
   align-items: center;
   font-family: var(--font-family-primary-bold), sans-serif;
   color: var(--color-text-h1);
-  font-size: 1.25rem;
+  font-size: 1.125rem;
   line-height: 1.65;
   background-color: transparent;
   border: none;
   padding: 0.375rem 0.375rem 0.375rem 0;
-  // box-shadow: 0 0 1rem var(--color-glow);
   min-width: 9.5rem;
   cursor: pointer;
   user-select: none;
   transition: 0.2s all ease;
-  margin-right: 3rem;
+
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 
-  @include media-down(mobile) {
-    font-size: 1rem;
-    font-weight: 700;
-    font-variation-settings: "wght" 700;
-    padding: 0.375rem 1rem 0.375rem 0;
-    min-width: fit-content;
+  // &:not(:last-child) {
+  //   margin-right: 3rem;
+  // }
+
+  &:hover {
+    .arrow-icon svg {
+      transform: translateX(0.5rem);
+    }
+
+    &.with-background {
+      transform: translateY(-0.5rem);
+    }
+  }
+
+  .arrow-icon,
+  .visual-icon {
+    margin-top: 0.25rem;
+
+    svg {
+      height: 1.125rem;
+      width: 1.125rem;
+      transition: all 0.2s ease-in-out;
+    }
+  }
+
+  .arrow-icon {
+    margin-left: 0.375rem;
+  }
+
+  .visual-icon {
+    margin-right: 0.625rem;
   }
 
   &.green {
     color: green;
   }
 
-  &:hover {
-    // box-shadow: 0 0 1rem var(--color-glow-hover);
+  &.with-background {
+    background-color: var(--color-button-bg);
+    box-shadow: 0 0 1rem var(--color-button-shadow);
+    padding: 1.25rem 1.5rem;
+    border-radius: 0.75rem;
 
-    #text {
-      border-bottom: 2px solid;
-    }
-
-    svg {
-      transform: translateX(0.5rem);
+    &:hover {
+      box-shadow: 0 0 1rem var(--color-button-shadow-hover);
     }
   }
 
-  &.semi-transparent {
-    background-color: var(--color-button-secondary);
+  @include media-down(tablet) {
+    font-size: 1rem;
+    // padding: 0.375rem 1rem 0.375rem 0;
+    // min-width: fit-content;
   }
 
-  svg {
-    margin-left: 0.375rem;
-    height: 1.125rem;
-    width: 1.125rem;
-    margin-top: 0.25rem;
-    // opacity: 0.9;
-    transition: all 0.2s ease-in-out;
+  @include media-down(mobile) {
+    font-size: 1rem;
+    padding: 0.375rem 1rem 0.375rem 0;
+    min-width: fit-content;
   }
 }

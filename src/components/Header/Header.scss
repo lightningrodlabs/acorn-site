@@ -7,7 +7,7 @@ header {
   align-items: center;
   justify-content: space-between;
   flex: 1 auto 1;
-  position: fixed;
+  position: absolute;
   top: 0;
   z-index: 2;
   width: 100%;
@@ -23,28 +23,18 @@ header {
 
   a.logo {
     h1 {
-      margin: 0 0.25rem;
-      @include media-down(tablet) {
-        margin: 0.5rem;
-      }
-
-      svg {
-        filter feFlood {
-          flood-opacity: 0.3;
-          transition: 0.3s flood-opacity ease;
-        }
-
-        &:hover {
-          filter {
-            feFlood {
-              flood-opacity: 0.7;
-            }
-          }
-        }
+      margin: 0;
+    }
+    
+    .acorn-logo-wrapper {
+      margin: 1rem;
+      .acorn-logo {
+        width: 8rem;
       }
     }
   }
 
+  // Nav Menu
   nav {
     display: flex;
     flex-direction: row;
@@ -72,7 +62,7 @@ header {
         svg {
           margin-left: 0.25rem;
           height: 1rem;
-          width: 1rem
+          width: 1rem;
         }
 
         &:hover {
