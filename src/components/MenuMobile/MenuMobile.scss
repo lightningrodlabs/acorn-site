@@ -1,0 +1,109 @@
+@import "../../mixin";
+
+.menu-mobile-wrapper {
+  position: fixed;
+  z-index: 100;
+  box-sizing: border-box;
+
+  .menu-mobile-logo {
+    height: 4rem;
+    width: 4rem;
+    transition: 0.2s opacity ease;
+
+    &:hover {
+      opacity: 0.8;
+    }
+  }
+
+  .menu-mobile-nav-socials {
+    padding: 1rem;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    .menu-mobile-nav {
+      margin-bottom: 7rem;
+
+      li {
+        list-style: none;
+
+        &:not(:last-child) {
+          margin-right: 2.5rem;
+        }
+
+        a {
+          text-decoration: none;
+          font-family: Satoshi, sans-serif;
+          font-weight: 700;
+          font-variation-settings: "wght" 700;
+          color: var(--color-text-p);
+          font-size: 2rem;
+          cursor: pointer;
+          transition: 0.2s all ease;
+
+          @include media-down(mobile) {
+            font-size: 1.625rem;
+          }
+
+          &:hover {
+            text-shadow: 0 0 0.5rem var(--color-text-glow);
+            text-decoration: underline;
+          }
+        }
+      }
+    }
+
+    .social-links-wrapper.mobile {
+      flex-direction: column;
+      margin-top: 0;
+      a {
+        font-size: 1.375rem;
+        margin-bottom: 0.5rem;
+      }
+    }
+  }
+
+  .menu-mobile-close-button {
+    position: fixed;
+    right: 0;
+    top: 0;
+    z-index: 200;
+    cursor: pointer;
+    padding: 1.5rem;
+
+    svg {
+      width: 1.375rem;
+      height: 1.375rem;
+    }
+
+    .close-icon {
+      width: 1.75rem;
+      height: 1.75rem;
+
+      transition: opacity 0.2s ease;
+      &:hover {
+        opacity: 0.8;
+      }
+    }
+  }
+}
+
+/* Mobile Menu Animation */
+.menu-mobile-list-wrapper {
+  opacity: 0;
+  transition: opacity 0.2s ease-in-out;
+}
+
+.menu-mobile-animation-enter-active,
+.menu-mobile-animation-enter-done {
+  opacity: 1;
+}
+
+.menu-mobile-nav-wrapper {
+  width: 100vw;
+  background-color: var(--color-bg);
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
