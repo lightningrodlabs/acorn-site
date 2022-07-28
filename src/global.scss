@@ -414,9 +414,23 @@ p {
       }
     }
 
-    h1 {
-      margin-top: 1rem;
-      margin-bottom: 1.5rem;
+    .heading {
+      &.tablet {
+        display: none;
+      }
+      &.non-tablet {
+        margin-top: 1rem;
+        margin-bottom: 1.5rem;
+      }
+
+      @include media-down(tablet) {
+        &.tablet {
+          display: flex;
+        }
+        &.non-tablet {
+          display: none;
+        }
+      }
     }
   }
 
@@ -424,7 +438,6 @@ p {
     flex: 1;
     box-sizing: border-box;
     padding-bottom: 2rem;
-    right: -3rem;
     position: relative;
 
     .hero-visual {
@@ -447,13 +460,11 @@ p {
     flex-direction: column;
     padding-top: 7rem;
     padding-right: 4rem;
+    min-height: fit-content;
 
     .hero-visual-wrapper {
       margin: 0;
-      width: 60%;
-      right: -10rem;
-      position: absolute;
-      z-index: -1;
+      flex: unset;
 
       .hero-visual {
         display: none;
@@ -469,10 +480,7 @@ p {
     .hero-content-wrapper {
       width: 100%;
       padding-top: 0;
-
-      P {
-        max-width: 27rem;
-      }
+      flex: unset;
     }
   }
 
@@ -590,8 +598,8 @@ p {
   flex-direction: row;
   margin: 2.5rem 0 2rem 0;
 
-  @include media-down(tablet) { 
-    margin-top: 1.5rem;
+  @include media-down(tablet) {
+    margin: 1rem 0;
   }
 
   .button-wrapper {
@@ -715,7 +723,7 @@ a button.button-wrapper {
         &.feature-slide-4 {
           flex-direction: row-reverse;
           margin-bottom: 2rem;
-          
+
           @include media-down(tablet) {
             flex-direction: column;
           }

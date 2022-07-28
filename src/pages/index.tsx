@@ -137,10 +137,14 @@ const IndexPage = () => {
               <div className="tag-wrapper secondary">holochain framework</div>
               <div className="tag-wrapper tertiary">project management</div>
             </div>
-            <h1>
+            <h1 className="heading non-tablet">
               Peer-to-Peer Agile <br />
               Project Management <br />
               For Software Teams
+            </h1>
+
+            <h1 className="heading tablet">
+              Peer-to-Peer Agile Project Management For Software Teams
             </h1>
 
             <p>
