@@ -2,7 +2,6 @@ import React from "react";
 import "./Header.scss";
 
 // images
-// import AcornLogo from "../../svgs/acorn-alpha-logo.svg";
 import AcornLogo from "../../images/acorn-alpha-logo.png";
 
 import ExternalLink from "../../svgs/external-link.svg";
@@ -24,18 +23,18 @@ const Header: React.FC<HeaderProps> = ({}) => {
       </a>
       <nav>
         <li>
-          <a className="" href="/#about" onClick={scrollToSection}>
+          <a className="header-menu-item desktop-only" href="/#about" onClick={scrollToSection}>
             About Acorn
           </a>
-          <a className="" href="/#download" onClick={scrollToSection}>
+          <a className="header-menu-item desktop-only" href="/#download" onClick={scrollToSection}>
             Download
           </a>
-          <a className="" href="https://docs.acorn.software" target="_blank">
+          <a className="header-menu-item" href="https://docs.acorn.software" target="_blank">
             Knowledge Base
             <ExternalLink />
           </a>
           <a
-            className="social-link"
+            className="header-menu-item"
             href="https://github.com/lightningrodlabs/acorn"
             target="_blank"
           >

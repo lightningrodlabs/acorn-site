@@ -8,8 +8,9 @@
   color: var(--color-text-h1);
   font-size: 1.125rem;
   line-height: 1.65;
-  background-color: transparent;
   border: none;
+  background-color: transparent;
+
   padding: 0.375rem 0.375rem 0.375rem 0;
   min-width: 9.5rem;
   cursor: pointer;
@@ -19,17 +20,12 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 
-  // &:not(:last-child) {
-  //   margin-right: 3rem;
-  // }
-
   &:hover {
+    opacity: 0.7;
+
     .arrow-icon svg {
       transform: translateX(0.5rem);
-    }
-
-    &.with-background {
-      transform: translateY(-0.5rem);
+      margin-left: 0.375rem;
     }
   }
 
@@ -59,11 +55,30 @@
   &.with-background {
     background-color: var(--color-button-bg);
     box-shadow: 0 0 1rem var(--color-button-shadow);
-    padding: 1.25rem 1.5rem;
+    padding: 1rem 1.5rem;
     border-radius: 0.75rem;
 
     &:hover {
       box-shadow: 0 0 1rem var(--color-button-shadow-hover);
+      opacity: 1;
+      transform: translateY(-0.5rem);
+    }
+  }
+
+  &.with-external-link {
+    border-bottom: 0.15rem solid transparent;
+    padding-right: 0rem;
+    padding-bottom: 0.125rem;
+    color: var(--color-text-p);
+    width: fit-content;
+    min-width: unset;
+
+    svg {
+      margin-left: 0.375rem;
+    }
+
+    &:hover {
+      border-bottom: 0.15rem solid var(--color-text-p);
     }
   }
 

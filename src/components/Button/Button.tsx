@@ -2,7 +2,7 @@ import React from "react";
 
 import "./Button.scss";
 
-// import ExternalLink from "../../svgs/external-link.svg";
+import ExternalLink from "../../svgs/external-link.svg";
 import ArrowRight from "../../svgs/arrow-right.svg";
 import ArrowRightGreen from "../../svgs/arrow-right-green.svg";
 
@@ -31,7 +31,7 @@ const Button: React.FC<ButtonProps> = ({
 
   return (
     <button
-      className={`button-wrapper ${green ? "green" : ""} ${withBackground ? "with-background" : ""}`}
+      className={`button-wrapper ${green ? "green" : ""} ${withBackground ? "with-background" : ""} ${ externalLinkIcon ? "with-external-link" : ""}`}
       onClick={onClick}
       data-href={href}
     >
@@ -39,6 +39,7 @@ const Button: React.FC<ButtonProps> = ({
       {text}
       {!green && arrowIcon && <span className="arrow-icon"><ArrowRight /></span>}
       {green && arrowIcon && <span className="arrow-icon"><ArrowRightGreen /></span>}
+      {externalLinkIcon && <span className="external-link-icon"><ExternalLink /></span>}
       {/* {externalLinkIcon && <ExternalLink />} */}
     </button>
   );

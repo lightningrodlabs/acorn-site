@@ -1,0 +1,119 @@
+@import "../../mixin";
+
+.about-acorn-features-wrapper {
+  position: relative;
+  flex: 1;
+
+  .about-acorn-feature-wrapper {
+    position: absolute;
+    opacity: 0;
+    z-index: -1;
+    top: 0;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+
+    .acorn-feature-content-wrapper {
+      width: 50%;
+      margin-right: 4rem;
+
+  
+    }
+
+    .acorn-feature-visual-wrapper {
+      flex: 1;
+      object-fit: contain;
+
+      .feature-visual {
+        object-fit: contain;
+        max-width: 100%;
+        img {
+          flex: 1;
+        }
+
+        &.framed {
+          border-radius: 1rem;
+          box-shadow: 0 0 1rem var(--color-button-shadow);
+        }
+      }
+
+      // if tabbedVisuals
+      .acorn-feature-visual-tabs {
+        margin-bottom: 1rem;
+        display: flex;
+        flex-direction: row;
+
+        .acorn-feature-visual-tab-item {
+          padding: 0.125rem;
+          font-family: var(--font-family-primary-bold);
+          cursor: pointer;
+          opacity: 0.4;
+          border-bottom: 0.15rem solid var(--color-text-h1);
+          margin-right: 2rem;
+          transition: opacity 0.2s ease;
+
+          &:hover {
+            opacity: 1;
+          }
+
+          &.active {
+            opacity: 1;
+          }
+        }
+      }
+    }
+
+    @include media-down(large) {
+      .acorn-feature-content-wrapper {
+        margin-right: 3rem;
+      }
+    }
+
+    @include media-down(tablet) {
+      flex-direction: column;
+      height: fit-content;
+
+      .acorn-feature-content-wrapper {
+        width: 100%;
+        margin-bottom: 2rem;
+        margin-right: 0;
+      }
+      .feature-visual {
+        max-height: 40vh;
+      }
+    }
+
+    @include media-down(mobile) {
+      .acorn-feature-content-wrapper {
+        width: 100%;
+        margin-bottom: 2rem;
+      }
+      .feature-visual {
+        max-height: 50vh;
+      }
+    }
+  }
+
+  .about-acorn-feature-animation-enter {
+    opacity: 0;
+  }
+  .about-acorn-feature-animation-enter-active {
+    opacity: 1;
+    transition: opacity 0.1s ease-in;
+    z-index: 1;
+  }
+  .about-acorn-feature-animation-enter-done {
+    opacity: 1;
+    z-index: 1;
+  }
+  .about-acorn-feature-animation-exit {
+    opacity: 1;
+    z-index: 1;
+  }
+  .about-acorn-feature-animation-exit-active {
+    opacity: 0;
+    transition: opacity 0.1s ease-out;
+  }
+}

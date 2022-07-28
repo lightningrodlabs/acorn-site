@@ -1,7 +1,7 @@
 @import "../../mixin";
 
 header {
-  padding: 0.5rem 2rem 0.5rem 0.25rem;
+  padding: 0.5rem 2rem;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -16,16 +16,20 @@ header {
   -moz-osx-font-smoothing: grayscale;
 
   @include media-down(tablet) {
-    padding: 0;
+    padding: 1rem;
     width: 100vw;
     box-sizing: border-box;
+  }
+
+  @include media-down(tablet) {
+    padding: 0;
   }
 
   a.logo {
     h1 {
       margin: 0;
     }
-    
+
     .acorn-logo-wrapper {
       margin: 1rem;
       .acorn-logo {
@@ -40,12 +44,12 @@ header {
     flex-direction: row;
     align-items: space-around;
 
-    @include media-down(tablet) {
-      display: none;
-    }
-
     li {
       list-style: none;
+
+      @include media-down(mobile) {
+        display: none;
+      }
 
       a {
         text-decoration: none;
@@ -54,9 +58,16 @@ header {
         font-size: 1rem;
         cursor: pointer;
         transition: 0.2s all ease;
+        border-bottom: 0.15rem solid transparent;
 
         &:not(:last-child) {
           margin-right: 2.25rem;
+        }
+
+        &.header-menu-item {
+          @include media-down(mobile) {
+            display: none;
+          }
         }
 
         svg {
@@ -67,15 +78,10 @@ header {
 
         &:hover {
           text-shadow: 0 0 0.5rem var(--color-text-glow);
-          text-decoration: underline;
+          border-bottom: 0.15rem solid var(--color-text-p);
+          transform: translateX(1rem);
         }
       }
-    }
-  }
-
-  .social-links-wrapper {
-    @include media-down(tablet) {
-      display: none;
     }
   }
 }

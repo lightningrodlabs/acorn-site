@@ -4,8 +4,10 @@ import { scrollToSection } from "../Scroll";
 
 import "./MenuMobile.scss";
 
+// images
 import AcornLogo from "../../images/acorn-alpha-logo.png";
 import MobileMenuIcon from "../../svgs/map.svg";
+import ExternalLink from "../../svgs/external-link.svg";
 
 export type MenuMobileProps = {
   isOpen: boolean;
@@ -40,13 +42,9 @@ const MenuMobile: React.FC<MenuMobileProps> = ({ isOpen, closeMenu }) => {
             <div className="menu-mobile-close-button" onClick={closeMenu}>
               <MobileMenuIcon className="close-icon" />
             </div>
-            <a
-              title="Acorn Logo"
-              className="menu-mobile-logo"
-              onClick={scrollToHome}
-            >
+            <a title="Acorn Logo" onClick={scrollToHome}>
               <h1>
-                <img src={AcornLogo} />
+                <img src={AcornLogo} className="menu-mobile-logo" />
               </h1>
             </a>
 
@@ -69,6 +67,7 @@ const MenuMobile: React.FC<MenuMobileProps> = ({ isOpen, closeMenu }) => {
                     onClick={onClickA}
                   >
                     Knowledge Base
+                    <ExternalLink />
                   </a>
                 </li>
                 <li>
@@ -78,6 +77,7 @@ const MenuMobile: React.FC<MenuMobileProps> = ({ isOpen, closeMenu }) => {
                     onClick={onClickA}
                   >
                     GitHub
+                    <ExternalLink />
                   </a>
                 </li>
               </nav>
