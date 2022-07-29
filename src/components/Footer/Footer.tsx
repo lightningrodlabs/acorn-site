@@ -23,9 +23,14 @@ const Footer: React.FC<FooterProps> = ({}) => {
         </div> */}
       </div>
 
-      <div className="footer-row two">
+      <div className="footer-row second">
         <p>
-          © 2020-2022 Harris-Braun Enterprises, LLC. Licensed under the{" "}
+          © 2020-2022 Harris-Braun Enterprises, LLC, operating as{" "}
+          <a href="https://lightningrodlabs.org/" target="_blank">
+            {" "}
+            Lightningrod Labs
+          </a>
+          . Licensed under the{" "}
           <a href="https://opensource.org/licenses/CAL-1.0" target="_blank">
             {" "}
             Cryptographic Autonomy License v1.0
@@ -37,10 +42,18 @@ const Footer: React.FC<FooterProps> = ({}) => {
       <div className="footer-row third">
         {/* Social Links */}
         <div className="social-links-wrapper">
-          <a className="social-link" href="" target="_blank">
+          <a
+            className="social-link"
+            href="https://docs.acorn.software"
+            target="_blank"
+          >
             Knowledge Base
           </a>
-          <a className="social-link" href="" target="_blank">
+          <a
+            className="social-link"
+            href="https://github.com/lightningrodlabs/acorn"
+            target="_blank"
+          >
             GitHub
           </a>
         </div>

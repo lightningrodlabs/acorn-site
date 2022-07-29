@@ -25,6 +25,7 @@ import DownloadWindows from "../svgs/windows.svg";
 import DownloadLinux from "../svgs/linux.svg";
 import MenuMobile from "../components/MenuMobile/MenuMobile";
 import FeatureSlide from "../components/FeatureSlide/FeatureSlide";
+import { scrollToSection } from "../components/Scroll";
 
 // import FeatureVisualFourMap from "../images/acorn-feature-visual-4-map-view.png";
 
@@ -155,8 +156,20 @@ const IndexPage = () => {
             </p>
 
             <div className="buttons-row">
-              <Button text="Download for free" green arrowIcon />
-              <Button text="Learn more" arrowIcon />
+              <Button
+                text="Download for free"
+                green
+                arrowIcon
+                href="/#download"
+                onClick={scrollToSection}
+              />
+
+              <Button
+                text="Learn more"
+                arrowIcon
+                href="/#about"
+                onClick={scrollToSection}
+              />
             </div>
           </div>
 
@@ -203,11 +216,18 @@ const IndexPage = () => {
               <FeatureSlide
                 isActive={activeSlide === ActiveSlide.Feature1}
                 title="Truly distributed collaboration"
-                description="Acorn is built as a Holochain application, meaning it runs
-                      on decentralized peer-to-peer computing and can be used
-                      without server infrastructure or a hosting service. The
-                      users of a particular Acorn instance are its hosting
-                      power."
+                description={
+                  <p>
+                    Acorn is built as a{" "}
+                    <a href="https://www.holochain.org/" target="_blank">
+                      Holochain
+                    </a>{" "}
+                    application, meaning it runs on decentralized peer-to-peer
+                    computing and can be used without server infrastructure or a
+                    hosting service. The users of a particular Acorn instance
+                    are its hosting power.
+                  </p>
+                }
                 buttonLink="https://www.holochain.org/"
                 visual={FeatureVisualOne}
                 className="feature-slide-1"
@@ -221,7 +241,7 @@ const IndexPage = () => {
                 Achievement Status in a Plan-Do-Check-Act Cycle process.
                 This helps you and your distributed team stay on track
                 while working on a complex project."
-                buttonLink=""
+                buttonLink="https://docs.acorn.software/about-acorn/the-ontology-of-acorn"
                 visual={FeatureVisualTwo}
                 className="feature-slide-2"
               />
@@ -234,7 +254,7 @@ const IndexPage = () => {
                 the complexity of your project, make measurable
                 estimations of Outcome achievement durations, and to see
                 the progress status of the project as a whole."
-                buttonLink=""
+                buttonLink="https://docs.acorn.software/about-acorn/the-ontology-of-acorn#outcome-scope"
                 visual={FeatureVisualThree}
                 className="feature-slide-3"
               />
@@ -243,15 +263,37 @@ const IndexPage = () => {
               <FeatureSlide
                 isActive={activeSlide === ActiveSlide.Feature4}
                 title="Project Views for different focuses & insights"
-                description="Each project view in Acorn gives you and your team members
-                the focus you each have. Map View is the most useful view
-                for team members in Project Management or Product
-                Ownership hat as it gives an overview of the project
-                status as a whole. Table View displays the project
-                Outcomes and their properties in a table format and is
-                most useful for team members in 'doer' hat. Priority View
-                displays the Outcomes that are marked as High Priority."
-                buttonLink=""
+                description={
+                  <p>
+                    Each project view in Acorn gives you and your team members
+                    the focus you each have.{" "}
+                    <a
+                      href="https://docs.acorn.software/project-views/map-view"
+                      target="_blank"
+                    >
+                      Map View
+                    </a>{" "}
+                    is the most useful view for team members in Project
+                    Management or Product Ownership hat as it gives an overview
+                    of the project status as a whole.{" "}
+                    <a
+                      href="https://docs.acorn.software/project-views/table-view"
+                      target="_blank"
+                    >
+                      Table View
+                    </a>{" "}
+                    displays the project Outcomes and their properties in a
+                    table format and is most useful for team members in 'doer'
+                    hat.{" "}
+                    <a
+                      href="https://docs.acorn.software/project-views/high-priority-view"
+                      target="_blank"
+                    >
+                      Priority View
+                    </a>{" "}
+                    displays the Outcomes that are marked as High Priority.
+                  </p>
+                }
                 isFramedVisual
                 tabbedVisuals
                 tabTitle1="Map View"

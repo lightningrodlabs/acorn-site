@@ -7,7 +7,7 @@ import "./FeatureSlide.scss";
 export type FeatureSlideProps = {
   isActive: boolean;
   title: string;
-  description: string;
+  description: string | React.ReactElement;
   visual?: string;
   isFramedVisual?: boolean;
   buttonLink?: string;

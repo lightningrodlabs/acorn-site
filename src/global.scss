@@ -192,7 +192,7 @@ h3 {
 }
 
 p {
-  font-family: var(--font-family-primary-medium), sans-serif;
+  font-family: var(--font-family-primary-medium);
   color: var(--color-text-p);
   font-size: 1.125rem;
   line-height: 1.6;
@@ -201,6 +201,7 @@ p {
 
   a {
     color: var(--color-text-link);
+    font-family: var(--font-family-primary-bold);
   }
 
   @include media-down(mobile) {
@@ -442,7 +443,6 @@ p {
     position: relative;
     width: 50%;
     aspect-ratio: 1.25/1;
-    // height: 40rem;
     background-repeat: no-repeat;
     background-size: cover;
     background-position-x: left;
@@ -470,9 +470,9 @@ p {
 
     .hero-visual-wrapper {
       margin: 0;
+      padding: 1rem;
       flex: unset;
       width: 100%;
-
 
       .hero-visual {
         display: none;
@@ -494,11 +494,14 @@ p {
 
   @include media-down(mobile) {
     flex-direction: column;
-    background-image: url("./images/acorn-hero-visual-mobile.png");
     padding-top: 6rem;
     padding-right: 2rem;
+    padding-bottom: 2rem;
 
     .hero-visual-wrapper {
+      background-image: url("./images/acorn-hero-visual-mobile.png");
+      background-size: contain;
+      aspect-ratio: 1.5/1;
       margin: 0;
       width: 100%;
       right: unset;
@@ -549,7 +552,7 @@ p {
     justify-content: center;
     align-items: center;
     width: 100%;
-    margin-bottom: 2rem;
+    margin-bottom: 0.5rem;
 
     h2 {
       margin-bottom: 1rem;
@@ -612,7 +615,7 @@ p {
     margin: 1rem 0;
   }
 
-  .button-wrapper {
+  .button-wrapper:not(:last-child) {
     margin-right: 3rem;
   }
 
@@ -728,6 +731,11 @@ a button.button-wrapper {
           @include media-down(tablet) {
             flex-direction: column;
           }
+
+          .acorn-feature-content-wrapper {
+            margin-right: 0;
+            margin-left: 3rem;
+          }
         }
 
         &.feature-slide-4 {
@@ -736,6 +744,11 @@ a button.button-wrapper {
 
           @include media-down(tablet) {
             flex-direction: column;
+          }
+
+          .acorn-feature-content-wrapper {
+            margin-right: 0;
+            margin-left: 3rem;
           }
         }
       }
