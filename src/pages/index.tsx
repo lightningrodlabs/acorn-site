@@ -162,16 +162,16 @@ const IndexPage = () => {
 
           {/* Hero Visual */}
           <div className="hero-visual-wrapper">
-            <img
+            {/* <img
               className="hero-visual"
               src={HeroVisual}
               alt="Acorn Hero Visual"
-            />
-            <img
+            /> */}
+            {/* <img
               className="hero-visual-mobile"
               src={HeroVisualMobile}
               alt="Acorn Hero Visual"
-            />
+            /> */}
           </div>
         </div>
 
@@ -282,21 +282,41 @@ const IndexPage = () => {
             get started.
           </p>
           <div className="buttons-row three">
-            {/* TODO: add download links */}
             <Button
               text="Download for MacOS"
               visualIcon={<DownloadMac />}
               withBackground
+              title="https://github.com/lightningrodlabs/acorn/releases/download/v1.0.4-alpha/Acorn-1.0.4-alpha.dmg"
+              onClick={() => {
+                window.open(
+                  "https://github.com/lightningrodlabs/acorn/releases/download/v1.0.4-alpha/Acorn-1.0.4-alpha.dmg",
+                  "_blank"
+                );
+              }}
             />
             <Button
               text="Download for Windows"
               visualIcon={<DownloadWindows />}
               withBackground
+              title="https://github.com/lightningrodlabs/acorn/releases/download/v1.0.4-alpha/Acorn.Setup.1.0.4-alpha.exe"
+              onClick={() => {
+                window.open(
+                  "https://github.com/lightningrodlabs/acorn/releases/download/v1.0.4-alpha/Acorn.Setup.1.0.4-alpha.exe",
+                  "_blank"
+                );
+              }}
             />
             <Button
               text="Download for Linux"
               visualIcon={<DownloadLinux />}
               withBackground
+              title="https://github.com/lightningrodlabs/acorn/releases/download/v1.0.4-alpha/Acorn-1.0.4-alpha.AppImage"
+              onClick={() => {
+                window.open(
+                  "https://github.com/lightningrodlabs/acorn/releases/download/v1.0.4-alpha/Acorn-1.0.4-alpha.AppImage",
+                  "_blank"
+                );
+              }}
             />
           </div>
         </div>

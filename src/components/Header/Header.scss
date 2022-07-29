@@ -21,10 +21,6 @@ header {
     box-sizing: border-box;
   }
 
-  @include media-down(tablet) {
-    padding: 0;
-  }
-
   a.logo {
     h1 {
       margin: 0;

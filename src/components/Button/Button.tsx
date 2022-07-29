@@ -16,6 +16,7 @@ export type ButtonProps = {
   semiTransparent?: boolean;
   onClick?: () => void;
   href?: string;
+  title?: string;
 };
 
 const Button: React.FC<ButtonProps> = ({
@@ -26,20 +27,35 @@ const Button: React.FC<ButtonProps> = ({
   arrowIcon,
   externalLinkIcon,
   onClick = () => {},
+  title,
   href,
 }) => {
-
   return (
     <button
-      className={`button-wrapper ${green ? "green" : ""} ${withBackground ? "with-background" : ""} ${ externalLinkIcon ? "with-external-link" : ""}`}
+      title={title}
+      className={`button-wrapper ${green ? "green" : ""} ${
+        withBackground ? "with-background" : ""
+      } ${externalLinkIcon ? "with-external-link" : ""}`}
       onClick={onClick}
       data-href={href}
     >
       {visualIcon && <span className="visual-icon">{visualIcon}</span>}
       {text}
-      {!green && arrowIcon && <span className="arrow-icon"><ArrowRight /></span>}
-      {green && arrowIcon && <span className="arrow-icon"><ArrowRightGreen /></span>}
-      {externalLinkIcon && <span className="external-link-icon"><ExternalLink /></span>}
+      {!green && arrowIcon && (
+        <span className="arrow-icon">
+          <ArrowRight />
+        </span>
+      )}
+      {green && arrowIcon && (
+        <span className="arrow-icon">
+          <ArrowRightGreen />
+        </span>
+      )}
+      {externalLinkIcon && (
+        <span className="external-link-icon">
+          <ExternalLink />
+        </span>
+      )}
       {/* {externalLinkIcon && <ExternalLink />} */}
     </button>
   );
