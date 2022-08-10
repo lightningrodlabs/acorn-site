@@ -15,15 +15,59 @@
     width: 100%;
     height: 100%;
 
+    .acorn-feature-slide-circles {
+      display: flex;
+      flex-direction: row;
+      margin-bottom: 2rem;
+      top: 0;
+      height: 100%;
+      position: absolute;
+
+      @include media-down(tablet) {
+        display: none;
+      }
+      .acorn-feature-slide-circle {
+        background-color: var(--color-bg);
+        height: 0.1rem;
+        width: 0.1rem;
+        border-radius: 50%;
+        padding: 0.325rem;
+        box-sizing: border-box;
+        margin-right: 0.25rem;
+        transition: 0.1s opacity;
+
+        &.active {
+          background-color: var(--color-tag-bg-3);
+        }
+      }
+    }
+
     .acorn-feature-content-wrapper {
       width: 50%;
       margin-right: 4rem;
+
+      .acorn-feature-surtitle {
+        font: 0.9rem var(--font-family-primary-bold);
+        color: var(--colot-text-accent);
+        opacity: 0.8;
+        margin-bottom: 0.75rem;
+
+        @include media-down(small-mobile) {
+          display: none;
+        }
+      }
+
+      p {
+        font-size: 1.05rem;
+        @include media-down(small-mobile) {
+          font-size: 1rem;
+        }
+      }
 
       a.acorn-feature-link {
         display: block;
         width: fit-content;
       }
-  
     }
 
     .acorn-feature-visual-wrapper {
@@ -33,6 +77,11 @@
       .feature-visual {
         object-fit: contain;
         max-width: 100%;
+
+        @include media-down(tablet) {
+          max-height: 50vh;
+        }
+
         img {
           flex: 1;
         }
@@ -75,27 +124,33 @@
       }
     }
 
-    @include media-down(tablet) {
+    @include media-down(mobile) {
       flex-direction: column;
       height: fit-content;
 
       .acorn-feature-content-wrapper {
         width: 100%;
-        margin-bottom: 2rem;
+        margin-bottom: 1.5rem;
         margin-right: 0;
       }
-      .feature-visual {
-        max-height: 40vh;
-      }
-    }
 
-    @include media-down(mobile) {
-      .acorn-feature-content-wrapper {
-        width: 100%;
-        margin-bottom: 2rem;
+      &.feature-slide-3 {
+        .feature-visual {
+          max-height: 40vh;
+        }
       }
       .feature-visual {
         max-height: 50vh;
+
+        &.framed {
+          max-height: 45vh;
+        }
+      }
+    }
+
+    @include media-down(small-mobile) {
+      .acorn-feature-content-wrapper {
+        margin-bottom: 1rem;
       }
     }
   }

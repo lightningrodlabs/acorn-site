@@ -191,6 +191,15 @@ const IndexPage = () => {
         {/* About Acorn */}
         {/* Start Sticky Wrapper */}
         <div>
+          {/* Heading */}
+          <div className="section-heading features" id="about">
+            <h2>What's special about Acorn</h2>
+            <p>
+              Acorn is not your typical project management tool. Here are a few
+              reasons why. 👇
+            </p>
+          </div>
+
           <div
             className={`section about ${
               activeSlide === ActiveSlide.Feature1
@@ -203,18 +212,13 @@ const IndexPage = () => {
                 ? "feature-4"
                 : ""
             }`}
-            id="about"
           >
-            {/* Heading */}
-            <div className="section-heading">
-              <h2>What's special about Acorn</h2>
-              <p>Acorn is not your typical project management tool. See why.</p>
-            </div>
             {/* Acorn Features */}
             <div className="about-acorn-features-wrapper">
               {/* Acorn Feature 1 */}
               <FeatureSlide
                 isActive={activeSlide === ActiveSlide.Feature1}
+                slideNumber="1"
                 title="Truly distributed collaboration"
                 description={
                   <p>
@@ -235,7 +239,8 @@ const IndexPage = () => {
               {/* Acorn Feature 2 */}
               <FeatureSlide
                 isActive={activeSlide === ActiveSlide.Feature2}
-                title="Project management via the lens of Intended Outcomes"
+                slideNumber="2"
+                title="Intended Outcomes, Not Goals"
                 description="In Acorn's ontology projects are managed through the lens
                 of Intended Outcomes, their dependencies, Scope, and
                 Achievement Status in a Plan-Do-Check-Act Cycle process.
@@ -248,7 +253,8 @@ const IndexPage = () => {
               {/* Acorn Feature 3 */}
               <FeatureSlide
                 isActive={activeSlide === ActiveSlide.Feature3}
-                title="A more intelligent project management"
+                slideNumber="3"
+                title="More intelligent project management"
                 description="Acorn provides the sweet-spot combination of annotated and
                 computed metadata to help you and your team make sense of
                 the complexity of your project, make measurable
@@ -262,36 +268,33 @@ const IndexPage = () => {
               {/* Acorn Feature 4 */}
               <FeatureSlide
                 isActive={activeSlide === ActiveSlide.Feature4}
-                title="Project Views for different focuses & insights"
+                slideNumber="4"
+                title="Multiple Lenses For Your Project"
                 description={
                   <p>
-                    Each project view in Acorn gives you and your team members
-                    the focus you each have.{" "}
+                    Each project view in Acorn helps you and your team members
+                    when you have a different kind of focus. There is{" "}
                     <a
                       href="https://docs.acorn.software/project-views/map-view"
                       target="_blank"
                     >
                       Map View
                     </a>{" "}
-                    is the most useful view for team members in Project
-                    Management or Product Ownership hat as it gives an overview
-                    of the project status as a whole.{" "}
+                    to offer a high-level overview,{" "}
                     <a
                       href="https://docs.acorn.software/project-views/table-view"
                       target="_blank"
                     >
                       Table View
                     </a>{" "}
-                    displays the project Outcomes and their properties in a
-                    table format and is most useful for team members in 'doer'
-                    hat.{" "}
+                    which is task-oriented, and{" "} 
                     <a
                       href="https://docs.acorn.software/project-views/high-priority-view"
                       target="_blank"
                     >
                       Priority View
                     </a>{" "}
-                    displays the Outcomes that are marked as High Priority.
+                    for aligning your team.
                   </p>
                 }
                 isFramedVisual
@@ -315,7 +318,38 @@ const IndexPage = () => {
         </div>
         {/* End Sticky Wrapper */}
 
-        {/* Download */}
+        {/* Who Section */}
+        <div className="section who" id="who">
+          <h2>Who's Involved in Developing Acorn</h2>
+          <p>
+            Acorn was envisioned and prototyped (using a third party platform)
+            by the <a>Holochain</a> core development team in 2018 to organize
+            their own planning and execution process.
+          </p>
+          <p>
+            In August 2019 <a>Sprillow</a> undertook a design process and began
+            building Acorn on Holochain and continue to today. In June 2022 the
+            first major release of Acorn alpha was published and it's currently
+            in Alpha testing phase.
+          </p>
+          <p>
+            <a> Lightningrod Labs</a> is the container for the continuous
+            development of Acorn alongside some other projects powered by
+            Holochain.
+          </p>
+
+          <Button
+            text="Download Acorn Alpha"
+            green
+            arrowIcon
+            href="/#download"
+            onClick={scrollToSection}
+          />
+
+          {/* <div className="who-visual-wrapper"></div> */}
+        </div>
+
+        {/* Download Section */}
         <div className="section download" id="download" ref={feature4ref2}>
           <h2>Download the latest Acorn alpha release</h2>
           <p>
