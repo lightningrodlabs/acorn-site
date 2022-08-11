@@ -23,7 +23,7 @@
       height: 100%;
       position: absolute;
 
-      @include media-down(tablet) {
+      @include media-down(mobile) {
         display: none;
       }
       .acorn-feature-slide-circle {
@@ -37,7 +37,7 @@
         transition: 0.1s opacity;
 
         &.active {
-          background-color: var(--color-tag-bg-3);
+          background-color: var(--color-border-active);
         }
       }
     }
@@ -97,10 +97,12 @@
         margin-bottom: 1rem;
         display: flex;
         flex-direction: row;
+        margin-left: 0.2rem;
 
         .acorn-feature-visual-tab-item {
           padding: 0.125rem;
           font-family: var(--font-family-primary-bold);
+          font-size: 0.9rem;
           cursor: pointer;
           opacity: 0.4;
           border-bottom: 0.15rem solid var(--color-text-h1);
@@ -121,6 +123,12 @@
     @include media-down(large) {
       .acorn-feature-content-wrapper {
         margin-right: 3rem;
+      }
+    }
+
+    @include media-down(tablet) {
+      .acorn-feature-content-wrapper {
+        margin-left: 0;
       }
     }
 

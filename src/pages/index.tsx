@@ -3,6 +3,8 @@ import Button from "../components/Button/Button";
 import Header from "../components/Header/Header";
 import Footer from "../components/Footer/Footer";
 
+import SEO from "../components/seo";
+
 import { CSSTransition } from "react-transition-group";
 
 import "../global.scss";
@@ -26,6 +28,7 @@ import DownloadLinux from "../svgs/linux.svg";
 import MenuMobile from "../components/MenuMobile/MenuMobile";
 import FeatureSlide from "../components/FeatureSlide/FeatureSlide";
 import { scrollToSection } from "../components/Scroll";
+import { HeadProps } from "gatsby";
 
 // import FeatureVisualFourMap from "../images/acorn-feature-visual-4-map-view.png";
 
@@ -127,7 +130,6 @@ const IndexPage = () => {
       </div> */}
 
       <main>
-        <title>Home Page</title>
         {/* Landing page hero */}
         <div className="section hero" id="hero">
           {/* Hero Content */}
@@ -240,7 +242,7 @@ const IndexPage = () => {
               <FeatureSlide
                 isActive={activeSlide === ActiveSlide.Feature2}
                 slideNumber="2"
-                title="Intended Outcomes, Not Goals"
+                title="Intended Outcomes, not goals"
                 description="In Acorn's ontology projects are managed through the lens
                 of Intended Outcomes, their dependencies, Scope, and
                 Achievement Status in a Plan-Do-Check-Act Cycle process.
@@ -269,7 +271,7 @@ const IndexPage = () => {
               <FeatureSlide
                 isActive={activeSlide === ActiveSlide.Feature4}
                 slideNumber="4"
-                title="Multiple Lenses For Your Project"
+                title="Multiple lenses for your project"
                 description={
                   <p>
                     Each project view in Acorn helps you and your team members
@@ -329,7 +331,7 @@ const IndexPage = () => {
           <p>
             In August 2019 <a>Sprillow</a> undertook a design process and began
             building Acorn on Holochain and continue to today. In June 2022 the
-            first major release of Acorn alpha was published and it's currently
+            first major release of Acorn (Alpha) was published and it's currently
             in Alpha testing phase.
           </p>
           <p>
@@ -404,3 +406,9 @@ const IndexPage = () => {
 };
 
 export default IndexPage;
+
+export function Head(props: HeadProps) {
+  return (
+    <SEO />
+  )
+}
