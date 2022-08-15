@@ -42,6 +42,7 @@ enum ActiveSlide {
 }
 
 const IndexPage = () => {
+  const io = useRef<IntersectionObserver>();
   const feature1ref = useRef(null);
   const feature2ref = useRef(null);
   const feature3ref = useRef(null);
@@ -52,67 +53,68 @@ const IndexPage = () => {
   // For About Acorn Section (features scrolling)
   const [activeSlide, setActiveSlide] = useState(ActiveSlide.Feature1);
 
-  const featureCallback = (activeSlide: ActiveSlide) => (entries: any) => {
-    const [entry] = entries;
-    console.log(activeSlide, entry);
-    if (entry.isIntersecting) {
-      setActiveSlide(activeSlide);
-    }
-  };
   useEffect(() => {
-    const ob = new IntersectionObserver(featureCallback(ActiveSlide.Feature1));
-    if (feature1ref.current) {
-      ob.observe(feature1ref.current);
-    }
+    const featureCallback: IntersectionObserverCallback = (entries) => {
+      const firstIntersectingSection = entries.find((e) => {
+        return e.isIntersecting
+      })
+      if (!firstIntersectingSection) {
+        return
+      }
+      let activeSlide: ActiveSlide
+      if (firstIntersectingSection.target.id === 'slide-1') {
+        activeSlide = ActiveSlide.Feature1
+      } else if (firstIntersectingSection.target.id === 'slide-2') {
+        activeSlide = ActiveSlide.Feature2
+      } else if (firstIntersectingSection.target.id === 'slide-3') {
+        activeSlide = ActiveSlide.Feature3
+      } else if (firstIntersectingSection.target.id === 'slide-4'
+                  || firstIntersectingSection.target.id === 'download') {
+        activeSlide = ActiveSlide.Feature4
+      } else {
+        activeSlide = ActiveSlide.Feature1
+      }
+      setActiveSlide(activeSlide)
+    };
+    const ob = new IntersectionObserver(featureCallback, {
+      // this value of 0.5 means that any element
+      // must be at least half on screen (top or bottom)
+      // in order to be considered 'visible' or 'isIntersecting'
+      // for the purposes of our slideshow
+      threshold: 0.5
+    });
+    io.current = ob;
     return () => {
-      if (feature1ref.current) {
-        ob.unobserve(feature1ref.current);
+      if (io.current) {
+        // @ts-ignore
+        io.current.disconnect();
       }
     };
+  }, []);
+  useEffect(() => {
+    if (feature1ref.current) {
+      io.current!.observe(feature1ref.current);
+    }
   }, [feature1ref]);
   useEffect(() => {
-    const ob = new IntersectionObserver(featureCallback(ActiveSlide.Feature2));
     if (feature2ref.current) {
-      ob.observe(feature2ref.current);
+      io.current!.observe(feature2ref.current);
     }
-    return () => {
-      if (feature2ref.current) {
-        ob.unobserve(feature2ref.current);
-      }
-    };
   }, [feature2ref]);
   useEffect(() => {
-    const ob = new IntersectionObserver(featureCallback(ActiveSlide.Feature3));
     if (feature3ref.current) {
-      ob.observe(feature3ref.current);
+      io.current!.observe(feature3ref.current);
     }
-    return () => {
-      if (feature3ref.current) {
-        ob.unobserve(feature3ref.current);
-      }
-    };
   }, [feature3ref]);
   useEffect(() => {
-    const ob = new IntersectionObserver(featureCallback(ActiveSlide.Feature4));
     if (feature4ref.current) {
-      ob.observe(feature4ref.current);
+      io.current!.observe(feature4ref.current);
     }
-    return () => {
-      if (feature4ref.current) {
-        ob.unobserve(feature4ref.current);
-      }
-    };
   }, [feature4ref]);
   useEffect(() => {
-    const ob = new IntersectionObserver(featureCallback(ActiveSlide.Feature4));
     if (feature4ref2.current) {
-      ob.observe(feature4ref2.current);
+      io.current!.observe(feature4ref2.current);
     }
-    return () => {
-      if (feature4ref2.current) {
-        ob.unobserve(feature4ref2.current);
-      }
-    };
   }, [feature4ref2]);
 
   return (
@@ -289,7 +291,7 @@ const IndexPage = () => {
                     >
                       Table View
                     </a>{" "}
-                    which is task-oriented, and{" "} 
+                    which is task-oriented, and{" "}
                     <a
                       href="https://docs.acorn.software/project-views/high-priority-view"
                       target="_blank"
@@ -313,10 +315,10 @@ const IndexPage = () => {
           </div>
 
           {/* Slide Activator - Empty Sections for Scrolling Effect */}
-          <div className="slide-activator" ref={feature1ref}></div>
-          <div className="slide-activator" ref={feature2ref}></div>
-          <div className="slide-activator" ref={feature3ref}></div>
-          <div className="slide-activator" ref={feature4ref}></div>
+          <div className="slide-activator pink" id="slide-1" ref={feature1ref}></div>
+          <div className="slide-activator blue" id="slide-2" ref={feature2ref}></div>
+          <div className="slide-activator green" id="slide-3" ref={feature3ref}></div>
+          <div className="slide-activator yellow" id="slide-4" ref={feature4ref}></div>
         </div>
         {/* End Sticky Wrapper */}
 
@@ -325,17 +327,17 @@ const IndexPage = () => {
           <h2>Who's Involved in Developing Acorn</h2>
           <p>
             Acorn was envisioned and prototyped (using a third party platform)
-            by the <a>Holochain</a> core development team in 2018 to organize
+            by the <a href="https://holochain.org" target="_blank">Holochain</a> core development team in 2018 to organize
             their own planning and execution process.
           </p>
           <p>
-            In August 2019 <a>Sprillow</a> undertook a design process and began
-            building Acorn on Holochain and continue to today. In June 2022 the
-            first major release of Acorn (Alpha) was published and it's currently
-            in Alpha testing phase.
+            In August 2019 <a href="https://sprillow.com" target="_blank">Sprillow</a> undertook a design process and began
+            building Acorn on Holochain and continues to today. In June 2022 the
+            first major release of Acorn (Alpha) was published and it's
+            currently in an Alpha testing phase.
           </p>
           <p>
-            <a> Lightningrod Labs</a> is the container for the continuous
+            <a href="https://lightningrodlabs.org" target="_blank">Lightningrod Labs</a> is the container for the continuous
             development of Acorn alongside some other projects powered by
             Holochain.
           </p>
@@ -408,7 +410,5 @@ const IndexPage = () => {
 export default IndexPage;
 
 export function Head(props: HeadProps) {
-  return (
-    <SEO />
-  )
+  return <SEO />;
 }

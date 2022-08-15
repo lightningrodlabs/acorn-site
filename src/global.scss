@@ -518,8 +518,23 @@ p {
 
 // About (Features)
 
+// make it slightly more than the full height
+// so that we guarantee two aren't on screen at the same time
 .slide-activator {
-  height: 100vh;
+  height: 110vh;
+  // turn these on for debugging
+  // &.pink {
+  //   background: pink;
+  // }
+  // &.blue {
+  //   background: blue;
+  // }
+  // &.green {
+  //   background: green;
+  // }
+  // &.yellow {
+  //   background: yellow;
+  // }
 }
 
 .section-heading.features {

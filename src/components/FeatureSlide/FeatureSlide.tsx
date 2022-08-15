@@ -3,6 +3,7 @@ import Button from "../Button/Button";
 import { CSSTransition } from "react-transition-group";
 
 import "./FeatureSlide.scss";
+import { scrollToSection } from "../Scroll";
 
 export type FeatureSlideProps = {
   isActive: boolean;
@@ -61,24 +62,32 @@ const FeatureSlide: React.FC<FeatureSlideProps> = ({
             className={`acorn-feature-slide-circle ${
               slideNumber === "1" ? "active" : ""
             }`}
+            data-href={'/#slide-1'}
+            onClick={scrollToSection}
           />
           {/* Feature 2 circle */}
           <div
             className={`acorn-feature-slide-circle ${
               slideNumber === "2" ? "active" : ""
             }`}
+            data-href={'/#slide-2'}
+            onClick={scrollToSection}
           />
           {/* Feature 3 circle */}
           <div
             className={`acorn-feature-slide-circle ${
               slideNumber === "3" ? "active" : ""
             }`}
+            data-href={'/#slide-3'}
+            onClick={scrollToSection}
           />
           {/* Feature 4 circle */}
           <div
             className={`acorn-feature-slide-circle ${
               slideNumber === "4" ? "active" : ""
             }`}
+            data-href={'/#slide-4'}
+            onClick={scrollToSection}
           />
         </div>
         {/* Feature Content */}
