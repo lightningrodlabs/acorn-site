@@ -282,9 +282,7 @@ const IndexPage = () => {
                     >
                       Table View
                     </a>{" "}
-                    displays the project Outcomes and their properties in a
-                    table format and is most useful for team members in 'doer'
-                    hat.{" "}
+                    which is task-oriented, and{" "}
                     <a
                       href="https://docs.acorn.software/project-views/high-priority-view"
                       target="_blank"
@@ -303,6 +301,15 @@ const IndexPage = () => {
                 tabVisual2={FeatureVisualFourTable}
                 tabVisual3={FeatureVisualFourPriority}
                 className="feature-slide-4"
+                buttonLinkOther={
+                  <a
+                    href="/#download"
+                    className="acorn-feature-link"
+                    onClick={scrollToSection}
+                  >
+                    <Button text="Dowload for Free" arrowIcon />
+                  </a>
+                }
               />
             </div>
           </div>
@@ -315,7 +322,38 @@ const IndexPage = () => {
         </div>
         {/* End Sticky Wrapper */}
 
-        {/* Download */}
+        {/* Who Section */}
+        <div className="section who" id="who">
+          <h2>Who's Involved in Developing Acorn</h2>
+          <p>
+            Acorn was envisioned and prototyped (using a third party platform)
+            by the <a>Holochain</a> core development team in 2018 to organize
+            their own planning and execution process.
+          </p>
+          <p>
+            In August 2019 <a>Sprillow</a> undertook a design process and began
+            building Acorn on Holochain and continue to today. In June 2022 the
+            first major release of Acorn (Alpha) was published and it's
+            currently in Alpha testing phase.
+          </p>
+          <p>
+            <a> Lightningrod Labs</a> is the container for the continuous
+            development of Acorn alongside some other projects powered by
+            Holochain.
+          </p>
+
+          <Button
+            text="Download Acorn Alpha"
+            green
+            arrowIcon
+            href="/#download"
+            onClick={scrollToSection}
+          />
+
+          {/* <div className="who-visual-wrapper"></div> */}
+        </div>
+
+        {/* Download Section */}
         <div className="section download" id="download" ref={feature4ref2}>
           <h2>Download the latest Acorn alpha release</h2>
           <p>
@@ -370,3 +408,8 @@ const IndexPage = () => {
 };
 
 export default IndexPage;
+
+export function Head(props: HeadProps) {
+  return <SEO />;
+}
+

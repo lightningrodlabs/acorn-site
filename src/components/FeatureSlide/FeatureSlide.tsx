@@ -11,6 +11,7 @@ export type FeatureSlideProps = {
   visual?: string;
   isFramedVisual?: boolean;
   buttonLink?: string;
+  buttonLinkOther?: React.ReactElement;
   tabbedVisuals?: boolean;
   tabTitle1?: string;
   tabTitle2?: string;
@@ -42,6 +43,7 @@ const FeatureSlide: React.FC<FeatureSlideProps> = ({
   tabVisual2,
   tabVisual3,
   className,
+  buttonLinkOther,
 }) => {
   const [activeTab, setActiveTab] = useState(ActiveTab.Tab1);
 
@@ -62,6 +64,11 @@ const FeatureSlide: React.FC<FeatureSlideProps> = ({
             <a href={buttonLink} target="_blank" className="acorn-feature-link">
               <Button text="Learn more" externalLinkIcon />
             </a>
+          )}
+          {buttonLinkOther && (
+            <>
+            {buttonLinkOther}
+            </>
           )}
         </div>
         {/* If tabbed visuals */}

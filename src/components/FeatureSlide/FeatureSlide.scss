@@ -15,6 +15,38 @@
     width: 100%;
     height: 100%;
 
+    .acorn-feature-slide-circles {
+      display: flex;
+      flex-direction: row;
+      margin-bottom: 2rem;
+      top: 0;
+      height: 100%;
+      position: absolute;
+
+      @include media-down(mobile) {
+        display: none;
+      }
+      .acorn-feature-slide-circle {
+        background-color: var(--color-text-tag);
+        height: 0.1rem;
+        width: 0.1rem;
+        border-radius: 50%;
+        padding: 0.325rem;
+        box-sizing: border-box;
+        margin-right: 0.25rem;
+        transition: opacity 0.1s ease;
+        cursor: pointer;
+
+        &:hover {
+          background-color: var(--color-bg);
+        }
+
+        &.active {
+          background-color: var(--color-border-active);
+        }
+      }
+    }
+
     .acorn-feature-content-wrapper {
       width: 50%;
       margin-right: 4rem;
