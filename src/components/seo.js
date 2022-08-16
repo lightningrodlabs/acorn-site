@@ -34,15 +34,13 @@ function SEO({ title, description, pathname, children, lang }) {
   //    `
   //  )
 
-  const { title: defaultTitle, description: defaultDescription, image, siteUrl, twitterUsername, keywords } = useSiteMetadata()
+  const { title: defaultTitle, description: defaultDescription, image, siteUrl, keywords } = useSiteMetadata()
 
-  console.log(title, defaultTitle)
   const seo = {
     title: title || defaultTitle,
     description: description || defaultDescription,
     image: `${siteUrl}${image}`,
     url: `${siteUrl}${pathname || ``}`,
-    twitterUsername,
     keywords,
   }
 
@@ -67,7 +65,6 @@ function SEO({ title, description, pathname, children, lang }) {
       <meta name="twitter:url" content={seo.url} />
       <meta name="twitter:description" content={seo.description} />
       <meta name="twitter:image" content={seo.image} />
-      <meta name="twitter:creator" content={seo.twitterUsername} />
       <meta name="keywords" content={seo.keywords.join(",")} />
       {/* favicon */}
       <link rel="icon" type="image/png" href="/acorn-icon.png" />
@@ -131,7 +128,7 @@ SEO.propTypes = {
   description: PropTypes.string,
   lang: PropTypes.string,
   meta: PropTypes.arrayOf(PropTypes.object),
-  title: PropTypes.string.isRequired,
+  title: PropTypes.string,
 }
 
 export default SEO
