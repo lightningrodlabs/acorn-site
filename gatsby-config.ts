@@ -8,7 +8,7 @@ const config: GatsbyConfig = {
     // make sure there is a copy of it in 'static' folder
     image: `/acorn-social-sharing-preview.png`,
     siteUrl: `https://www.acorn.software`,
-    keywords: ["Holochain", "project management"],
+    // keywords: ["Holochain", "project management"],
   },
   // More easily incorporate content into your pages through automatic TypeScript type generation and better GraphQL IntelliSense.
   // If you use VSCode you can also use the GraphQL plugin
