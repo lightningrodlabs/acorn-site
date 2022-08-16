@@ -310,15 +310,6 @@ const IndexPage = () => {
                 tabVisual2={FeatureVisualFourTable}
                 tabVisual3={FeatureVisualFourPriority}
                 className="feature-slide-4"
-                buttonLinkOther={
-                  <a
-                    href="/#download"
-                    className="acorn-feature-link"
-                    onClick={scrollToSection}
-                  >
-                    <Button text="Dowload for Free" arrowIcon />
-                  </a>
-                }
               />
             </div>
           </div>
