@@ -518,21 +518,21 @@ p {
 
 // About (Features)
 
+.sticky-wrapper {
+  // margin-bottom: 20rem;
+}
 // make it slightly more than the full height
 // so that we guarantee two aren't on screen at the same time
 .slide-activator {
-  height: 110vh;
+  height: 50vh;
   // turn these on for debugging
-  // &.pink {
-  //   background: pink;
-  // }
-  // &.blue {
+  // &#slide-2 {
   //   background: blue;
   // }
-  // &.green {
+  // &#slide-3 {
   //   background: green;
   // }
-  // &.yellow {
+  // &#slide-4 {
   //   background: yellow;
   // }
 }

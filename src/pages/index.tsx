@@ -43,7 +43,6 @@ enum ActiveSlide {
 
 const IndexPage = () => {
   const io = useRef<IntersectionObserver>();
-  const feature1ref = useRef(null);
   const feature2ref = useRef(null);
   const feature3ref = useRef(null);
   const feature4ref = useRef(null);
@@ -58,7 +57,16 @@ const IndexPage = () => {
       const firstIntersectingSection = entries.find((e) => {
         return e.isIntersecting
       })
+      const firstNonIntersectingSection = entries.find((e) => {
+        return !e.isIntersecting
+      })
+      // none are visible
       if (!firstIntersectingSection) {
+        if (firstNonIntersectingSection?.target.id === 'slide-2') {
+          setActiveSlide(ActiveSlide.Feature1)
+        } else if (firstNonIntersectingSection?.target.id === 'slide-4') {
+          setActiveSlide(ActiveSlide.Feature4)
+        }
         return
       }
       let activeSlide: ActiveSlide
@@ -69,7 +77,7 @@ const IndexPage = () => {
       } else if (firstIntersectingSection.target.id === 'slide-3') {
         activeSlide = ActiveSlide.Feature3
       } else if (firstIntersectingSection.target.id === 'slide-4'
-                  || firstIntersectingSection.target.id === 'download') {
+                  || firstIntersectingSection.target.id === 'who') {
         activeSlide = ActiveSlide.Feature4
       } else {
         activeSlide = ActiveSlide.Feature1
@@ -81,7 +89,7 @@ const IndexPage = () => {
       // must be at least half on screen (top or bottom)
       // in order to be considered 'visible' or 'isIntersecting'
       // for the purposes of our slideshow
-      threshold: 0.5
+      threshold: 1
     });
     io.current = ob;
     return () => {
@@ -91,11 +99,6 @@ const IndexPage = () => {
       }
     };
   }, []);
-  useEffect(() => {
-    if (feature1ref.current) {
-      io.current!.observe(feature1ref.current);
-    }
-  }, [feature1ref]);
   useEffect(() => {
     if (feature2ref.current) {
       io.current!.observe(feature2ref.current);
@@ -194,7 +197,7 @@ const IndexPage = () => {
 
         {/* About Acorn */}
         {/* Start Sticky Wrapper */}
-        <div>
+        <div className="sticky-wrapper">
           {/* Heading */}
           <div className="section-heading features" id="about">
             <h2>What's special about Acorn</h2>
@@ -310,24 +313,16 @@ const IndexPage = () => {
                 tabVisual2={FeatureVisualFourTable}
                 tabVisual3={FeatureVisualFourPriority}
                 className="feature-slide-4"
-                buttonLinkOther={
-                  <a
-                    href="/#download"
-                    className="acorn-feature-link"
-                    onClick={scrollToSection}
-                  >
-                    <Button text="Dowload for Free" arrowIcon />
-                  </a>
-                }
               />
             </div>
           </div>
 
           {/* Slide Activator - Empty Sections for Scrolling Effect */}
-          <div className="slide-activator pink" id="slide-1" ref={feature1ref}></div>
-          <div className="slide-activator blue" id="slide-2" ref={feature2ref}></div>
-          <div className="slide-activator green" id="slide-3" ref={feature3ref}></div>
-          <div className="slide-activator yellow" id="slide-4" ref={feature4ref}></div>
+          <div className="slide-activator" id="slide-2" ref={feature2ref}></div>
+          <div className="slide-activator" id="slide-3" ref={feature3ref}></div>
+          <div className="slide-activator" id="slide-4" ref={feature4ref}></div>
+          {/* adds extra time for slide 4 */}
+          <div className="slide-activator"></div>
         </div>
         {/* End Sticky Wrapper */}
 

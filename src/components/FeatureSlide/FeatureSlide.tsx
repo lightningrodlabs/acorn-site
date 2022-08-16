@@ -46,7 +46,6 @@ const FeatureSlide: React.FC<FeatureSlideProps> = ({
   tabVisual2,
   tabVisual3,
   className,
-  buttonLinkOther,
 }) => {
   const [activeTab, setActiveTab] = useState(ActiveTab.Tab1);
 
@@ -101,11 +100,6 @@ const FeatureSlide: React.FC<FeatureSlideProps> = ({
             <a href={buttonLink} target="_blank" className="acorn-feature-link">
               <Button text="Learn more" externalLinkIcon />
             </a>
-          )}
-          {buttonLinkOther && (
-            <>
-            {buttonLinkOther}
-            </>
           )}
         </div>
         {/* If tabbed visuals */}
