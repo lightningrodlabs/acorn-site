@@ -8,7 +8,6 @@
 import React from "react"
 import PropTypes from "prop-types"
 import { useSiteMetadata } from "../hooks/use-site-metadata"
-//  import { useStaticQuery, graphql } from "gatsby"
 
 function SEO({ title, description, pathname, children, lang }) {
   //  const { site, ogImageDefault } = useStaticQuery(
@@ -55,7 +54,6 @@ function SEO({ title, description, pathname, children, lang }) {
   return (
     <>
       <title>{seo.title}</title>
-      
       <meta name="description" content={seo.description} />
       <meta name="image" content={seo.image} />
       {/* For Sharing (Open Graph) */}

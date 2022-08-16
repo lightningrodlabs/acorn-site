@@ -3,6 +3,8 @@ import Button from "../components/Button/Button";
 import Header from "../components/Header/Header";
 import Footer from "../components/Footer/Footer";
 
+import SEO from "../components/seo";
+
 import { CSSTransition } from "react-transition-group";
 
 import "../global.scss";
@@ -26,6 +28,7 @@ import DownloadLinux from "../svgs/linux.svg";
 import MenuMobile from "../components/MenuMobile/MenuMobile";
 import FeatureSlide from "../components/FeatureSlide/FeatureSlide";
 import { scrollToSection } from "../components/Scroll";
+import { HeadProps } from "gatsby";
 
 // import FeatureVisualFourMap from "../images/acorn-feature-visual-4-map-view.png";
 
@@ -39,6 +42,7 @@ enum ActiveSlide {
 }
 
 const IndexPage = () => {
+  const io = useRef<IntersectionObserver>();
   const feature1ref = useRef(null);
   const feature2ref = useRef(null);
   const feature3ref = useRef(null);
@@ -49,67 +53,68 @@ const IndexPage = () => {
   // For About Acorn Section (features scrolling)
   const [activeSlide, setActiveSlide] = useState(ActiveSlide.Feature1);
 
-  const featureCallback = (activeSlide: ActiveSlide) => (entries: any) => {
-    const [entry] = entries;
-    console.log(activeSlide, entry);
-    if (entry.isIntersecting) {
-      setActiveSlide(activeSlide);
-    }
-  };
   useEffect(() => {
-    const ob = new IntersectionObserver(featureCallback(ActiveSlide.Feature1));
-    if (feature1ref.current) {
-      ob.observe(feature1ref.current);
-    }
+    const featureCallback: IntersectionObserverCallback = (entries) => {
+      const firstIntersectingSection = entries.find((e) => {
+        return e.isIntersecting
+      })
+      if (!firstIntersectingSection) {
+        return
+      }
+      let activeSlide: ActiveSlide
+      if (firstIntersectingSection.target.id === 'slide-1') {
+        activeSlide = ActiveSlide.Feature1
+      } else if (firstIntersectingSection.target.id === 'slide-2') {
+        activeSlide = ActiveSlide.Feature2
+      } else if (firstIntersectingSection.target.id === 'slide-3') {
+        activeSlide = ActiveSlide.Feature3
+      } else if (firstIntersectingSection.target.id === 'slide-4'
+                  || firstIntersectingSection.target.id === 'download') {
+        activeSlide = ActiveSlide.Feature4
+      } else {
+        activeSlide = ActiveSlide.Feature1
+      }
+      setActiveSlide(activeSlide)
+    };
+    const ob = new IntersectionObserver(featureCallback, {
+      // this value of 0.5 means that any element
+      // must be at least half on screen (top or bottom)
+      // in order to be considered 'visible' or 'isIntersecting'
+      // for the purposes of our slideshow
+      threshold: 0.5
+    });
+    io.current = ob;
     return () => {
-      if (feature1ref.current) {
-        ob.unobserve(feature1ref.current);
+      if (io.current) {
+        // @ts-ignore
+        io.current.disconnect();
       }
     };
+  }, []);
+  useEffect(() => {
+    if (feature1ref.current) {
+      io.current!.observe(feature1ref.current);
+    }
   }, [feature1ref]);
   useEffect(() => {
-    const ob = new IntersectionObserver(featureCallback(ActiveSlide.Feature2));
     if (feature2ref.current) {
-      ob.observe(feature2ref.current);
+      io.current!.observe(feature2ref.current);
     }
-    return () => {
-      if (feature2ref.current) {
-        ob.unobserve(feature2ref.current);
-      }
-    };
   }, [feature2ref]);
   useEffect(() => {
-    const ob = new IntersectionObserver(featureCallback(ActiveSlide.Feature3));
     if (feature3ref.current) {
-      ob.observe(feature3ref.current);
+      io.current!.observe(feature3ref.current);
     }
-    return () => {
-      if (feature3ref.current) {
-        ob.unobserve(feature3ref.current);
-      }
-    };
   }, [feature3ref]);
   useEffect(() => {
-    const ob = new IntersectionObserver(featureCallback(ActiveSlide.Feature4));
     if (feature4ref.current) {
-      ob.observe(feature4ref.current);
+      io.current!.observe(feature4ref.current);
     }
-    return () => {
-      if (feature4ref.current) {
-        ob.unobserve(feature4ref.current);
-      }
-    };
   }, [feature4ref]);
   useEffect(() => {
-    const ob = new IntersectionObserver(featureCallback(ActiveSlide.Feature4));
     if (feature4ref2.current) {
-      ob.observe(feature4ref2.current);
+      io.current!.observe(feature4ref2.current);
     }
-    return () => {
-      if (feature4ref2.current) {
-        ob.unobserve(feature4ref2.current);
-      }
-    };
   }, [feature4ref2]);
 
   return (
@@ -127,7 +132,6 @@ const IndexPage = () => {
       </div> */}
 
       <main>
-        <title>Home Page</title>
         {/* Landing page hero */}
         <div className="section hero" id="hero">
           {/* Hero Content */}
@@ -191,6 +195,15 @@ const IndexPage = () => {
         {/* About Acorn */}
         {/* Start Sticky Wrapper */}
         <div>
+          {/* Heading */}
+          <div className="section-heading features" id="about">
+            <h2>What's special about Acorn</h2>
+            <p>
+              Acorn is not your typical project management tool. Here are a few
+              reasons why. 👇
+            </p>
+          </div>
+
           <div
             className={`section about ${
               activeSlide === ActiveSlide.Feature1
@@ -203,18 +216,13 @@ const IndexPage = () => {
                 ? "feature-4"
                 : ""
             }`}
-            id="about"
           >
-            {/* Heading */}
-            <div className="section-heading">
-              <h2>What's special about Acorn</h2>
-              <p>Acorn is not your typical project management tool. See why.</p>
-            </div>
             {/* Acorn Features */}
             <div className="about-acorn-features-wrapper">
               {/* Acorn Feature 1 */}
               <FeatureSlide
                 isActive={activeSlide === ActiveSlide.Feature1}
+                slideNumber="1"
                 title="Truly distributed collaboration"
                 description={
                   <p>
@@ -235,7 +243,8 @@ const IndexPage = () => {
               {/* Acorn Feature 2 */}
               <FeatureSlide
                 isActive={activeSlide === ActiveSlide.Feature2}
-                title="Project management via the lens of Intended Outcomes"
+                slideNumber="2"
+                title="Intended Outcomes, not goals"
                 description="In Acorn's ontology projects are managed through the lens
                 of Intended Outcomes, their dependencies, Scope, and
                 Achievement Status in a Plan-Do-Check-Act Cycle process.
@@ -248,7 +257,8 @@ const IndexPage = () => {
               {/* Acorn Feature 3 */}
               <FeatureSlide
                 isActive={activeSlide === ActiveSlide.Feature3}
-                title="A more intelligent project management"
+                slideNumber="3"
+                title="More intelligent project management"
                 description="Acorn provides the sweet-spot combination of annotated and
                 computed metadata to help you and your team make sense of
                 the complexity of your project, make measurable
@@ -262,20 +272,19 @@ const IndexPage = () => {
               {/* Acorn Feature 4 */}
               <FeatureSlide
                 isActive={activeSlide === ActiveSlide.Feature4}
-                title="Project Views for different focuses & insights"
+                slideNumber="4"
+                title="Multiple lenses for your project"
                 description={
                   <p>
-                    Each project view in Acorn gives you and your team members
-                    the focus you each have.{" "}
+                    Each project view in Acorn helps you and your team members
+                    when you have a different kind of focus. There is{" "}
                     <a
                       href="https://docs.acorn.software/project-views/map-view"
                       target="_blank"
                     >
                       Map View
                     </a>{" "}
-                    is the most useful view for team members in Project
-                    Management or Product Ownership hat as it gives an overview
-                    of the project status as a whole.{" "}
+                    to offer a high-level overview,{" "}
                     <a
                       href="https://docs.acorn.software/project-views/table-view"
                       target="_blank"
@@ -289,7 +298,7 @@ const IndexPage = () => {
                     >
                       Priority View
                     </a>{" "}
-                    displays the Outcomes that are marked as High Priority.
+                    for aligning your team.
                   </p>
                 }
                 isFramedVisual
@@ -315,10 +324,10 @@ const IndexPage = () => {
           </div>
 
           {/* Slide Activator - Empty Sections for Scrolling Effect */}
-          <div className="slide-activator" ref={feature1ref}></div>
-          <div className="slide-activator" ref={feature2ref}></div>
-          <div className="slide-activator" ref={feature3ref}></div>
-          <div className="slide-activator" ref={feature4ref}></div>
+          <div className="slide-activator pink" id="slide-1" ref={feature1ref}></div>
+          <div className="slide-activator blue" id="slide-2" ref={feature2ref}></div>
+          <div className="slide-activator green" id="slide-3" ref={feature3ref}></div>
+          <div className="slide-activator yellow" id="slide-4" ref={feature4ref}></div>
         </div>
         {/* End Sticky Wrapper */}
 
@@ -327,17 +336,17 @@ const IndexPage = () => {
           <h2>Who's Involved in Developing Acorn</h2>
           <p>
             Acorn was envisioned and prototyped (using a third party platform)
-            by the <a>Holochain</a> core development team in 2018 to organize
+            by the <a href="https://holochain.org" target="_blank">Holochain</a> core development team in 2018 to organize
             their own planning and execution process.
           </p>
           <p>
-            In August 2019 <a>Sprillow</a> undertook a design process and began
-            building Acorn on Holochain and continue to today. In June 2022 the
+            In August 2019 <a href="https://sprillow.com" target="_blank">Sprillow</a> undertook a design process and began
+            building Acorn on Holochain and continues to today. In June 2022 the
             first major release of Acorn (Alpha) was published and it's
-            currently in Alpha testing phase.
+            currently in an Alpha testing phase.
           </p>
           <p>
-            <a> Lightningrod Labs</a> is the container for the continuous
+            <a href="https://lightningrodlabs.org" target="_blank">Lightningrod Labs</a> is the container for the continuous
             development of Acorn alongside some other projects powered by
             Holochain.
           </p>
@@ -412,4 +421,3 @@ export default IndexPage;
 export function Head(props: HeadProps) {
   return <SEO />;
 }
-

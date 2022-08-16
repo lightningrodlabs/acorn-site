@@ -3,9 +3,11 @@ import Button from "../Button/Button";
 import { CSSTransition } from "react-transition-group";
 
 import "./FeatureSlide.scss";
+import { scrollToSection } from "../Scroll";
 
 export type FeatureSlideProps = {
   isActive: boolean;
+  slideNumber: string;
   title: string;
   description: string | React.ReactElement;
   visual?: string;
@@ -30,6 +32,7 @@ enum ActiveTab {
 
 const FeatureSlide: React.FC<FeatureSlideProps> = ({
   isActive,
+  slideNumber,
   title,
   description,
   visual,
@@ -55,10 +58,44 @@ const FeatureSlide: React.FC<FeatureSlideProps> = ({
       classNames="about-acorn-feature-animation"
     >
       <div className={`about-acorn-feature-wrapper ${className}`}>
+        <div className="acorn-feature-slide-circles">
+          {/* Feature 1 circle */}
+          <div
+            className={`acorn-feature-slide-circle ${
+              slideNumber === "1" ? "active" : ""
+            }`}
+            data-href={'/#slide-1'}
+            onClick={scrollToSection}
+          />
+          {/* Feature 2 circle */}
+          <div
+            className={`acorn-feature-slide-circle ${
+              slideNumber === "2" ? "active" : ""
+            }`}
+            data-href={'/#slide-2'}
+            onClick={scrollToSection}
+          />
+          {/* Feature 3 circle */}
+          <div
+            className={`acorn-feature-slide-circle ${
+              slideNumber === "3" ? "active" : ""
+            }`}
+            data-href={'/#slide-3'}
+            onClick={scrollToSection}
+          />
+          {/* Feature 4 circle */}
+          <div
+            className={`acorn-feature-slide-circle ${
+              slideNumber === "4" ? "active" : ""
+            }`}
+            data-href={'/#slide-4'}
+            onClick={scrollToSection}
+          />
+        </div>
         {/* Feature Content */}
-
         <div className="acorn-feature-content-wrapper">
-          <h2>{title}</h2>
+          <div className="acorn-feature-surtitle">Why Acorn #{slideNumber}</div>
+          <h3>{title}</h3>
           <p>{description}</p>
           {buttonLink && (
             <a href={buttonLink} target="_blank" className="acorn-feature-link">

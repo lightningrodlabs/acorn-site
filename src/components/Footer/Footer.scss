@@ -10,7 +10,7 @@ footer {
     padding: 4rem;
   }
 
-  @include media-down(desktop) {
+  @include media-down(tablet) {
     flex-direction: column;
     align-items: center;
     padding: 1rem;
@@ -71,7 +71,7 @@ footer {
   display: flex;
   flex-direction: row;
 
-  @include media-down(desktop) {
+  @include media-down(tablet) {
     margin-top: 1rem;
   }
 

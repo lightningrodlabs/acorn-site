@@ -23,8 +23,11 @@ const Header: React.FC<HeaderProps> = ({}) => {
       </a>
       <nav>
         <li>
-          <a className="header-menu-item desktop-only" href="/#about" onClick={scrollToSection}>
-            About Acorn
+        <a className="header-menu-item desktop-only" href="/#about" onClick={scrollToSection}>
+            Why Acorn
+          </a>
+          <a className="header-menu-item desktop-only" href="/#who" onClick={scrollToSection}>
+            Who's Involved
           </a>
           <a className="header-menu-item desktop-only" href="/#download" onClick={scrollToSection}>
             Download
