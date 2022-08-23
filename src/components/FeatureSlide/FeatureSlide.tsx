@@ -6,7 +6,7 @@ import "./FeatureSlide.scss";
 import { scrollToSection } from "../Scroll";
 
 export type FeatureSlideProps = {
-  isActive: boolean;
+  // isActive: boolean;
   slideNumber: string;
   title: string;
   description: string | React.ReactElement;
@@ -31,7 +31,7 @@ enum ActiveTab {
 }
 
 const FeatureSlide: React.FC<FeatureSlideProps> = ({
-  isActive,
+  // isActive,
   slideNumber,
   title,
   description,
@@ -50,15 +50,15 @@ const FeatureSlide: React.FC<FeatureSlideProps> = ({
   const [activeTab, setActiveTab] = useState(ActiveTab.Tab1);
 
   return (
-    <CSSTransition
-      appear
-      in={isActive}
-      timeout={100}
-      classNames="about-acorn-feature-animation"
-    >
+    // <CSSTransition
+    //   appear
+    //   in={isActive}
+    //   timeout={100}
+    //   classNames="about-acorn-feature-animation"
+    // >
       <div className={`about-acorn-feature-wrapper ${className}`}>
-        <div className="acorn-feature-slide-circles">
-          {/* Feature 1 circle */}
+        {/* <div className="acorn-feature-slide-circles">
+        
           <div
             className={`acorn-feature-slide-circle ${
               slideNumber === "1" ? "active" : ""
@@ -66,7 +66,7 @@ const FeatureSlide: React.FC<FeatureSlideProps> = ({
             data-href={'/#slide-1'}
             onClick={scrollToSection}
           />
-          {/* Feature 2 circle */}
+
           <div
             className={`acorn-feature-slide-circle ${
               slideNumber === "2" ? "active" : ""
@@ -74,7 +74,7 @@ const FeatureSlide: React.FC<FeatureSlideProps> = ({
             data-href={'/#slide-2'}
             onClick={scrollToSection}
           />
-          {/* Feature 3 circle */}
+        
           <div
             className={`acorn-feature-slide-circle ${
               slideNumber === "3" ? "active" : ""
@@ -82,7 +82,7 @@ const FeatureSlide: React.FC<FeatureSlideProps> = ({
             data-href={'/#slide-3'}
             onClick={scrollToSection}
           />
-          {/* Feature 4 circle */}
+      
           <div
             className={`acorn-feature-slide-circle ${
               slideNumber === "4" ? "active" : ""
@@ -90,7 +90,7 @@ const FeatureSlide: React.FC<FeatureSlideProps> = ({
             data-href={'/#slide-4'}
             onClick={scrollToSection}
           />
-        </div>
+        </div> */}
         {/* Feature Content */}
         <div className="acorn-feature-content-wrapper">
           <div className="acorn-feature-surtitle">Why Acorn #{slideNumber}</div>
@@ -159,7 +159,7 @@ const FeatureSlide: React.FC<FeatureSlideProps> = ({
           </div>
         )}
       </div>
-    </CSSTransition>
+    // </CSSTransition>
   );
 };
 

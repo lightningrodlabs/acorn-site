@@ -5,6 +5,7 @@
 
   // color
   --color-bg: #f2efec;
+  --color-bg-2: #e6e0d1;
   --color-bg-semi-transparent: #f2efec7b; //(50% opacity)
   --color-tag-bg-1: #1da094;
   --color-tag-bg-2: #5f71f4;
@@ -154,6 +155,10 @@ h1 {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 
+  @include media-up(desktop) {
+    font-size: 3.25rem;
+  }
+
   @include media-down(tablet) {
     font-size: 2.5rem;
   }
@@ -166,10 +171,14 @@ h1 {
 h2 {
   font-family: var(--font-family-heading), sans-serif;
   color: var(--color-text-h2);
-  font-size: 2.375rem;
+  font-size: 2.5rem;
   line-height: 1.25;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+
+  @include media-up(desktop) {
+    font-size: 2.75rem;
+  }
 
   @include media-down(tablet) {
     font-size: 2rem;
@@ -179,9 +188,13 @@ h2 {
 h3 {
   font-family: var(--font-family-heading), sans-serif;
   color: var(--color-text-h1);
-  font-size: 2.125rem;
+  font-size: 2.25rem;
   line-height: 1.25;
   margin-top: 0;
+
+  @include media-up(desktop) {
+    font-size: 2.5rem;
+  }
 
   @include media-down(tablet) {
     font-size: 1.75rem;
@@ -203,6 +216,10 @@ p {
   a {
     color: var(--color-text-link);
     font-family: var(--font-family-primary-bold);
+  }
+
+  @include media-up(desktop) {
+    font-size: 1.25rem;
   }
 
   @include media-down(mobile) {
@@ -260,6 +277,7 @@ p {
 
 .section {
   min-height: 100vh;
+
   display: flex;
   flex-direction: column;
   padding: 4rem;
@@ -410,6 +428,10 @@ p {
           background-color: var(--color-tag-bg-3);
         }
 
+        @include media-up(desktop) {
+          font-size: 0.9rem;
+        }
+
         @include media-down(mobile) {
           margin-bottom: 0.5rem;
         }
@@ -516,34 +538,13 @@ p {
   }
 }
 
-// About (Features)
-
-.sticky-wrapper {
-  // margin-bottom: 20rem;
-}
-// make it slightly more than the full height
-// so that we guarantee two aren't on screen at the same time
-.slide-activator {
-  height: 50vh;
-  // turn these on for debugging
-  // &#slide-2 {
-  //   background: blue;
-  // }
-  // &#slide-3 {
-  //   background: green;
-  // }
-  // &#slide-4 {
-  //   background: yellow;
-  // }
-}
-
 .section-heading.features {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   width: 100%;
-  padding: 4rem 2rem 0 2rem;
+  padding-bottom: 2rem;
   box-sizing: border-box;
 
   h2 {
@@ -555,20 +556,15 @@ p {
     text-align: center;
   }
 
-  // @include media-down(tablet) {
-  //   display: none;
-  //   height: fit-content;
-  // }
+  @include media-down(mobile) {
+    padding-bottom: 4rem;
+  }
 }
 
-.section.about {
-  position: sticky;
-  position: -webkit-sticky;
-  top: 2rem;
-  // 4rem comes from 2 * 2rem for the margin
-  height: calc(100vh - 4rem);
-  margin: 2rem;
-  border-radius: 2rem;
+.section.why {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   justify-content: space-around;
   padding-top: 4rem;
   padding-bottom: 4rem;
@@ -593,36 +589,81 @@ p {
     padding-top: 3rem;
     padding-bottom: 3rem;
     top: 1.5em;
-    height: calc(100vh - 3rem);
-    margin: 1.5rem;
-    border-radius: 1.5rem;
   }
 
   @include media-down(mobile) {
     padding-top: 2rem;
     padding-bottom: 2rem;
-    top: 1rem;
-    height: calc(100vh - 2rem);
-    margin: 1rem;
-    border-radius: 1rem;
   }
 
   @include media-down(small-mobile) {
     padding-top: 2rem;
     padding-bottom: 2rem;
     top: 0.5rem;
-    height: calc(100vh - 1rem);
     margin: 0.5rem;
     border-radius: 1rem;
   }
 }
 
 .section.who {
-  background-color: var(--color-bg-feature-2);
-  margin: 2rem;
-  border-radius: 2rem;
-  height: calc(100vh - 4rem);
+  height: 100vh;
   position: relative;
+  display: flex;
+  flex-direction: row;
+  padding-right: 0;
+  align-items: center;
+
+  @include media-down(small-tablet) {
+    padding-right: 2rem;
+    padding-bottom: 4rem;
+
+    .who-content-wrapper {
+      width: 100%;
+      margin-top: 0;
+    }
+    .who-visual-wrapper {
+      display: none;
+    }
+  }
+
+  @include media-down(mobile) {
+    .button-wrapper {
+      display: none;
+    }
+  }
+
+  .who-content-wrapper {
+    display: flex;
+    flex-direction: column;
+    margin-right: 4rem;
+    height: 100%;
+    flex: 1;
+    margin-top: 2rem;
+
+    @include media-down(tablet) {
+      margin-bottom: 2rem;
+      margin-right: 0;
+    }
+  }
+
+  .who-visual-wrapper {
+    background-image: url("./images/acorn-who-is-involved.png");
+    flex: 1;
+    box-sizing: border-box;
+    padding: 2rem;
+    position: relative;
+    flex: 1;
+    max-width: 28rem;
+    aspect-ratio: 1.1/1;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position-x: left;
+    margin-top: 4rem;
+
+    @include media-down(tablet) {
+      max-width: 20rem;
+    }
+  }
 
   p {
     margin-top: 0.5rem;
@@ -635,9 +676,7 @@ p {
   @include media-down(mobile) {
     padding-top: 2rem;
     padding-bottom: 2rem;
-    top: 1rem;
-    height: calc(100vh - 2rem);
-    margin: 1rem;
+    height: 100vh;
     border-radius: 1rem;
     height: fit-content;
   }
@@ -670,6 +709,7 @@ p {
 // Download
 
 .section.download {
+  background-color: var(--color-bg-2);
   height: 85vh;
   min-height: unset;
   padding-bottom: 4rem;
@@ -723,7 +763,7 @@ p {
       .button-wrapper {
         margin-right: 0;
         margin-bottom: 1rem;
-        width: 17rem;
+        width: 18rem;
       }
     }
   }
@@ -732,7 +772,7 @@ p {
 // mobile menu
 
 .menu-mobile-icon {
-  z-index: 2;
+  // z-index: 1;
   display: none;
   position: absolute;
   right: 1rem;
@@ -750,7 +790,7 @@ p {
     opacity: 0.8;
   }
 
-  @include media-down(mobile) {
+  @include media-down(tablet) {
     display: block;
   }
 }
@@ -803,11 +843,24 @@ a button.button-wrapper {
 @media (max-height: 42rem) {
   .section.who {
     height: auto;
-    padding: 4rem 3rem;
+    padding: 4rem 0 3rem 3rem;
     margin-top: 4rem;
+
+    @include media-down(tablet) {
+      padding-right: 3rem;
+    }
+
+    .who-content-wrapper {
+      margin-top: 0;
+    }
+
+    .who-visual-wrapper {
+      margin-top: 1rem;
+      max-width: 20rem;
+    }
   }
 
-  .section.about {
+  .section.why {
     position: relative;
     height: fit-content;
 
@@ -815,13 +868,8 @@ a button.button-wrapper {
       .about-acorn-feature-wrapper {
         position: relative;
         opacity: 1;
-        z-index: 1;
         top: unset;
         margin-bottom: 4rem;
-
-        .acorn-feature-slide-circles {
-          display: none;
-        }
 
         .acorn-feature-content-wrapper {
           margin-right: 0;
@@ -850,25 +898,40 @@ a button.button-wrapper {
             }
           }
         }
-
-        // &.feature-slide-4 {
-
-        //   margin-bottom: 2rem;
-
-        //   .acorn-feature-content-wrapper {
-        //     margin-right: 0;
-
-        //     @include media-up(mobile) {
-        //       margin-right: 3rem;
-        //       flex-direction: row-reverse;
-        //     }
-        //   }
-        // }
       }
     }
   }
+}
 
-  .slide-activator {
+.acorn-feature-slide-circles {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 2rem;
+  top: 2rem;
+  left: -2rem;
+  height: 100%;
+  position: sticky;
+
+  @include media-down(mobile) {
     display: none;
+  }
+  .acorn-feature-slide-circle {
+    background-color: var(--color-text-tag);
+    height: 0.1rem;
+    width: 0.1rem;
+    border-radius: 50%;
+    padding: 0.325rem;
+    box-sizing: border-box;
+    margin-bottom: 0.25rem;
+    transition: opacity 0.1s ease;
+    cursor: pointer;
+
+    &:hover {
+      background-color: var(--color-bg);
+    }
+
+    &.active {
+      background-color: var(--color-border-active);
+    }
   }
 }

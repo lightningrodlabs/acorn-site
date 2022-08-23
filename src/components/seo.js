@@ -65,7 +65,7 @@ function SEO({ title, description, pathname, children, lang }) {
       <meta name="twitter:url" content={seo.url} />
       <meta name="twitter:description" content={seo.description} />
       <meta name="twitter:image" content={seo.image} />
-      <meta name="keywords" content={seo.keywords.join(",")} />
+      {/* <meta name="keywords" content={seo.keywords.join(",")} /> */}
       {/* favicon */}
       <link rel="icon" type="image/png" href="/acorn-icon.png" />
       {children}

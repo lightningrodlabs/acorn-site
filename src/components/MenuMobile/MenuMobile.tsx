@@ -6,7 +6,7 @@ import "./MenuMobile.scss";
 
 // images
 import AcornLogo from "../../images/acorn-alpha-logo.png";
-import MobileMenuIcon from "../../svgs/map.svg";
+import MobileMenuCloseIcon from "../../svgs/x.svg";
 import ExternalLink from "../../svgs/external-link.svg";
 
 export type MenuMobileProps = {
@@ -40,7 +40,7 @@ const MenuMobile: React.FC<MenuMobileProps> = ({ isOpen, closeMenu }) => {
         >
           <div className="menu-mobile-nav-wrapper">
             <div className="menu-mobile-close-button" onClick={closeMenu}>
-              <MobileMenuIcon className="close-icon" />
+              <MobileMenuCloseIcon className="close-icon" />
             </div>
             <a title="Acorn Logo" onClick={scrollToHome}>
               <h1>
@@ -51,8 +51,13 @@ const MenuMobile: React.FC<MenuMobileProps> = ({ isOpen, closeMenu }) => {
             <div className="menu-mobile-nav-socials">
               <nav className="menu-mobile-nav">
                 <li>
-                  <a href="/#about" onClick={onClickA}>
-                    About Acorn
+                  <a href="/#why" onClick={onClickA}>
+                    Why Acorn
+                  </a>
+                </li>
+                <li>
+                  <a href="/#who" onClick={onClickA}>
+                    Who's Involved
                   </a>
                 </li>
                 <li>
@@ -66,8 +71,7 @@ const MenuMobile: React.FC<MenuMobileProps> = ({ isOpen, closeMenu }) => {
                     target="_blank"
                     onClick={onClickA}
                   >
-                    Knowledge Base
-                    <ExternalLink />
+                    Knowledge Base <ExternalLink />
                   </a>
                 </li>
                 <li>
@@ -76,8 +80,7 @@ const MenuMobile: React.FC<MenuMobileProps> = ({ isOpen, closeMenu }) => {
                     target="_blank"
                     onClick={onClickA}
                   >
-                    GitHub
-                    <ExternalLink />
+                    GitHub <ExternalLink />
                   </a>
                 </li>
               </nav>

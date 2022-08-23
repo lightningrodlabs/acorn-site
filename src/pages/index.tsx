@@ -10,7 +10,6 @@ import { CSSTransition } from "react-transition-group";
 import "../global.scss";
 
 //images
-// import MobileMenuIcon from "../svgs/map.svg";
 
 import HeroVisual from "../images/acorn-hero-visual.png";
 import HeroVisualMobile from "../images/acorn-hero-visual-mobile.png";
@@ -21,6 +20,8 @@ import FeatureVisualThree from "../images/acorn-feature-vis-3.png";
 import FeatureVisualFourMap from "../images/acorn-feature-vis-4-map.png";
 import FeatureVisualFourTable from "../images/acorn-feature-vis-4-table.png";
 import FeatureVisualFourPriority from "../images/acorn-feature-vis-4-priority.png";
+
+import WhoIsInvolvedVisual from "../images/acorn-who-is-involved.png";
 
 import DownloadMac from "../svgs/apple.svg";
 import DownloadWindows from "../svgs/windows.svg";
@@ -34,109 +35,83 @@ import { HeadProps } from "gatsby";
 
 // markup
 
-enum ActiveSlide {
-  Feature1,
-  Feature2,
-  Feature3,
-  Feature4,
-}
+// RGB color values, red-green-blue
+const SLIDE_COLORS_RGB = [
+  [225, 220, 238], // feature 1 slide bg color
+  [220, 228, 206], // feature 2 slide bg color
+  [233, 227, 213], // feature 3 slide bg color
+  [231, 216, 204], // feature 4 slide bg color
+];
 
 const IndexPage = () => {
   const io = useRef<IntersectionObserver>();
-  const feature2ref = useRef(null);
-  const feature3ref = useRef(null);
+  const io2 = useRef<IntersectionObserver>();
+  const heroWrapperRef = useRef(null);
+  const featuresWrapperRef = useRef(null);
+  const featuresEndWrapperRef = useRef(null);
   const feature4ref = useRef(null);
-  const feature4ref2 = useRef(null);
-  const [openMenuMobile, setOpenMenuMobile] = useState(false);
+  const [bgColor, setBgColor] = useState(SLIDE_COLORS_RGB[0]);
 
-  // For About Acorn Section (features scrolling)
-  const [activeSlide, setActiveSlide] = useState(ActiveSlide.Feature1);
+  const setColor = (v1: number[], v2: number[], percentage: number) => {
+    const Rdiff = v2[0] - v1[0];
+    const RtoAdd = Math.floor(Rdiff * percentage);
+    const R = v1[0] + RtoAdd;
+    const Gdiff = v2[1] - v1[1];
+    const GtoAdd = Math.floor(Gdiff * percentage);
+    const G = v1[1] + GtoAdd;
+    const Bdiff = v2[2] - v1[2];
+    const BtoAdd = Math.floor(Bdiff * percentage);
+    const B = v1[2] + BtoAdd;
+    setBgColor([R, G, B]);
+  };
 
   useEffect(() => {
-    const featureCallback: IntersectionObserverCallback = (entries) => {
-      const firstIntersectingSection = entries.find((e) => {
-        return e.isIntersecting
-      })
-      const firstNonIntersectingSection = entries.find((e) => {
-        return !e.isIntersecting
-      })
-      // none are visible
-      if (!firstIntersectingSection) {
-        if (firstNonIntersectingSection?.target.id === 'slide-2') {
-          setActiveSlide(ActiveSlide.Feature1)
-        } else if (firstNonIntersectingSection?.target.id === 'slide-4') {
-          setActiveSlide(ActiveSlide.Feature4)
-        }
-        return
-      }
-      let activeSlide: ActiveSlide
-      if (firstIntersectingSection.target.id === 'slide-1') {
-        activeSlide = ActiveSlide.Feature1
-      } else if (firstIntersectingSection.target.id === 'slide-2') {
-        activeSlide = ActiveSlide.Feature2
-      } else if (firstIntersectingSection.target.id === 'slide-3') {
-        activeSlide = ActiveSlide.Feature3
-      } else if (firstIntersectingSection.target.id === 'slide-4'
-                  || firstIntersectingSection.target.id === 'who') {
-        activeSlide = ActiveSlide.Feature4
+    const s = () => {
+      const currentScroll =
+        window.scrollY - heroWrapperRef.current.clientHeight;
+      const endOfScroll = feature4ref.current.offsetTop;
+      const percentageDecimal = Math.min(
+        1,
+        Math.max(0, currentScroll / endOfScroll)
+      );
+      const percentage = Math.floor(percentageDecimal * 100);
+      if (percentage >= 0 && percentage <= 33) {
+        // first gradient (between 1st and 2nd slide)
+        setColor(
+          SLIDE_COLORS_RGB[0],
+          SLIDE_COLORS_RGB[1],
+          percentageDecimal * 3
+        );
+      } else if (percentage >= 34 && percentage <= 66) {
+        // second gradient (between 2nd and 3rd slide)
+        setColor(
+          SLIDE_COLORS_RGB[1],
+          SLIDE_COLORS_RGB[2],
+          (percentageDecimal - 0.33) * 3
+        );
       } else {
-        activeSlide = ActiveSlide.Feature1
+        // third gradient (between 3rd and 4th slide)
+        setColor(
+          SLIDE_COLORS_RGB[2],
+          SLIDE_COLORS_RGB[3],
+          (percentageDecimal - 0.66) * 3
+        );
       }
-      setActiveSlide(activeSlide)
     };
-    const ob = new IntersectionObserver(featureCallback, {
-      // this value of 0.5 means that any element
-      // must be at least half on screen (top or bottom)
-      // in order to be considered 'visible' or 'isIntersecting'
-      // for the purposes of our slideshow
-      threshold: 1
-    });
-    io.current = ob;
+    s();
+    document.addEventListener("scroll", s);
     return () => {
-      if (io.current) {
-        // @ts-ignore
-        io.current.disconnect();
-      }
+      document.removeEventListener("scroll", s);
     };
-  }, []);
-  useEffect(() => {
-    if (feature2ref.current) {
-      io.current!.observe(feature2ref.current);
-    }
-  }, [feature2ref]);
-  useEffect(() => {
-    if (feature3ref.current) {
-      io.current!.observe(feature3ref.current);
-    }
-  }, [feature3ref]);
-  useEffect(() => {
-    if (feature4ref.current) {
-      io.current!.observe(feature4ref.current);
-    }
-  }, [feature4ref]);
-  useEffect(() => {
-    if (feature4ref2.current) {
-      io.current!.observe(feature4ref2.current);
-    }
-  }, [feature4ref2]);
+  }, [heroWrapperRef, featuresWrapperRef]);
 
   return (
     <>
-      {/* <SEO title="Scalable & distributed framework for economic network coordination" /> */}
       <Header />
-
-      {/* Mobile menu is only visible on smaller screens */}
-      {/* <MenuMobile
-        isOpen={openMenuMobile}
-        closeMenu={() => setOpenMenuMobile(false)}
-      /> */}
-      {/* <div className="menu-mobile-icon" onClick={() => setOpenMenuMobile(true)}>
-        <MobileMenuIcon />
-      </div> */}
 
       <main>
         {/* Landing page hero */}
-        <div className="section hero" id="hero">
+        <div className="section hero" id="hero" ref={heroWrapperRef}>
           {/* Hero Content */}
           <div className="hero-content-wrapper">
             {/* Tags */}
@@ -174,7 +149,7 @@ const IndexPage = () => {
               <Button
                 text="Learn more"
                 arrowIcon
-                href="/#about"
+                href="/#why"
                 onClick={scrollToSection}
               />
             </div>
@@ -195,11 +170,17 @@ const IndexPage = () => {
           </div>
         </div>
 
-        {/* About Acorn */}
-        {/* Start Sticky Wrapper */}
-        <div className="sticky-wrapper">
+        {/* Why Acorn */}
+        <div
+          id="why"
+          ref={featuresWrapperRef}
+          className='section why'
+          style={{
+            backgroundColor: `rgb(${bgColor.join(",")})`,
+          }}
+        >
           {/* Heading */}
-          <div className="section-heading features" id="about">
+          <div className="section-heading features">
             <h2>What's special about Acorn</h2>
             <p>
               Acorn is not your typical project management tool. Here are a few
@@ -207,74 +188,62 @@ const IndexPage = () => {
             </p>
           </div>
 
-          <div
-            className={`section about ${
-              activeSlide === ActiveSlide.Feature1
-                ? "feature-1"
-                : activeSlide === ActiveSlide.Feature2
-                ? "feature-2"
-                : activeSlide === ActiveSlide.Feature3
-                ? "feature-3"
-                : activeSlide === ActiveSlide.Feature4
-                ? "feature-4"
-                : ""
-            }`}
-          >
-            {/* Acorn Features */}
-            <div className="about-acorn-features-wrapper">
-              {/* Acorn Feature 1 */}
-              <FeatureSlide
-                isActive={activeSlide === ActiveSlide.Feature1}
-                slideNumber="1"
-                title="Truly distributed collaboration"
-                description={
-                  <p>
-                    Acorn is built as a{" "}
-                    <a href="https://www.holochain.org/" target="_blank">
-                      Holochain
-                    </a>{" "}
-                    application, meaning it runs on decentralized peer-to-peer
-                    computing and can be used without server infrastructure or a
-                    hosting service. The users of a particular Acorn instance
-                    are its hosting power.
-                  </p>
-                }
-                buttonLink="https://www.holochain.org/"
-                visual={FeatureVisualOne}
-                className="feature-slide-1"
-              />
-              {/* Acorn Feature 2 */}
-              <FeatureSlide
-                isActive={activeSlide === ActiveSlide.Feature2}
-                slideNumber="2"
-                title="Intended Outcomes, not goals"
-                description="In Acorn's ontology projects are managed through the lens
+          {/* Acorn Features */}
+          <div className="about-acorn-features-wrapper">
+            {/* Acorn Feature 1 */}
+            <FeatureSlide
+              // isActive={activeSlide === ActiveSlide.Feature1}
+              slideNumber="1"
+              title="Truly distributed collaboration"
+              description={
+                <p>
+                  Acorn is built as a{" "}
+                  <a href="https://www.holochain.org/" target="_blank">
+                    Holochain
+                  </a>{" "}
+                  application, meaning it runs on decentralized peer-to-peer
+                  computing and can be used without server infrastructure or a
+                  hosting service. The users of a particular Acorn instance are
+                  its hosting power.
+                </p>
+              }
+              buttonLink="https://www.holochain.org/"
+              visual={FeatureVisualOne}
+              className="feature-slide-1"
+            />
+            {/* Acorn Feature 2 */}
+            <FeatureSlide
+              // isActive={activeSlide === ActiveSlide.Feature2}
+              slideNumber="2"
+              title="Intended Outcomes, not goals"
+              description="In Acorn's ontology projects are managed through the lens
                 of Intended Outcomes, their dependencies, Scope, and
                 Achievement Status in a Plan-Do-Check-Act Cycle process.
                 This helps you and your distributed team stay on track
                 while working on a complex project."
-                buttonLink="https://docs.acorn.software/about-acorn/the-ontology-of-acorn"
-                visual={FeatureVisualTwo}
-                className="feature-slide-2"
-              />
-              {/* Acorn Feature 3 */}
-              <FeatureSlide
-                isActive={activeSlide === ActiveSlide.Feature3}
-                slideNumber="3"
-                title="More intelligent project management"
-                description="Acorn provides the sweet-spot combination of annotated and
+              buttonLink="https://docs.acorn.software/about-acorn/the-ontology-of-acorn"
+              visual={FeatureVisualTwo}
+              className="feature-slide-2"
+            />
+            {/* Acorn Feature 3 */}
+            <FeatureSlide
+              // isActive={activeSlide === ActiveSlide.Feature3}
+              slideNumber="3"
+              title="More intelligent project management"
+              description="Acorn provides the sweet-spot combination of annotated and
                 computed metadata to help you and your team make sense of
                 the complexity of your project, make measurable
                 estimations of Outcome achievement durations, and to see
                 the progress status of the project as a whole."
-                buttonLink="https://docs.acorn.software/about-acorn/the-ontology-of-acorn#outcome-scope"
-                visual={FeatureVisualThree}
-                className="feature-slide-3"
-              />
+              buttonLink="https://docs.acorn.software/about-acorn/the-ontology-of-acorn#outcome-scope"
+              visual={FeatureVisualThree}
+              className="feature-slide-3"
+            />
 
-              {/* Acorn Feature 4 */}
+            {/* Acorn Feature 4 */}
+            <div ref={feature4ref}>
               <FeatureSlide
-                isActive={activeSlide === ActiveSlide.Feature4}
+                // isActive={activeSlide === ActiveSlide.Feature4}
                 slideNumber="4"
                 title="Multiple lenses for your project"
                 description={
@@ -316,49 +285,54 @@ const IndexPage = () => {
               />
             </div>
           </div>
-
-          {/* Slide Activator - Empty Sections for Scrolling Effect */}
-          <div className="slide-activator" id="slide-2" ref={feature2ref}></div>
-          <div className="slide-activator" id="slide-3" ref={feature3ref}></div>
-          <div className="slide-activator" id="slide-4" ref={feature4ref}></div>
-          {/* adds extra time for slide 4 */}
-          <div className="slide-activator"></div>
         </div>
-        {/* End Sticky Wrapper */}
 
         {/* Who Section */}
-        <div className="section who" id="who">
-          <h2>Who's Involved in Developing Acorn</h2>
-          <p>
-            Acorn was envisioned and prototyped (using a third party platform)
-            by the <a href="https://holochain.org" target="_blank">Holochain</a> core development team in 2018 to organize
-            their own planning and execution process.
-          </p>
-          <p>
-            In August 2019 <a href="https://sprillow.com" target="_blank">Sprillow</a> undertook a design process and began
-            building Acorn on Holochain and continues to today. In June 2022 the
-            first major release of Acorn (Alpha) was published and it's
-            currently in an Alpha testing phase.
-          </p>
-          <p>
-            <a href="https://lightningrodlabs.org" target="_blank">Lightningrod Labs</a> is the container for the continuous
-            development of Acorn alongside some other projects powered by
-            Holochain.
-          </p>
+        <div className="section who" id="who" ref={featuresEndWrapperRef}>
+          <div className="who-content-wrapper">
+            <h2>Who's Involved in Developing Acorn</h2>
+            <p>
+              Acorn was envisioned and prototyped (using a third party platform)
+              by the{" "}
+              <a href="https://holochain.org" target="_blank">
+                Holochain
+              </a>{" "}
+              core development team in 2018 to organize their own planning and
+              execution process.
+            </p>
+            <p>
+              In August 2019{" "}
+              <a href="https://sprillow.com" target="_blank">
+                Sprillow
+              </a>{" "}
+              undertook a design process and began building Acorn on Holochain
+              and continues to today. In June 2022 the first major release of
+              Acorn (Alpha) was published and it's currently in an Alpha testing
+              phase.
+            </p>
+            <p>
+              <a href="https://lightningrodlabs.org" target="_blank">
+                Lightningrod Labs
+              </a>{" "}
+              is the container for the continuous development of Acorn alongside
+              some other projects powered by Holochain.
+            </p>
 
-          <Button
-            text="Download Acorn Alpha"
-            green
-            arrowIcon
-            href="/#download"
-            onClick={scrollToSection}
-          />
+            <Button
+              text="Download Acorn Alpha"
+              green
+              arrowIcon
+              href="/#download"
+              onClick={scrollToSection}
+            />
+          </div>
 
-          {/* <div className="who-visual-wrapper"></div> */}
+          <div className="who-visual-wrapper">
+            {/* <img src={WhoIsInvolvedVisual} /> */}
+          </div>
         </div>
-
         {/* Download Section */}
-        <div className="section download" id="download" ref={feature4ref2}>
+        <div className="section download" id="download">
           <h2>Download the latest Acorn alpha release</h2>
           <p>
             Available as native desktop app for MacOS, Windows and Linux. <br />{" "}

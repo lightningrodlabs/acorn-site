@@ -1,16 +1,21 @@
-import React from "react";
+import React, { useState } from "react";
 import "./Header.scss";
 
 // images
+import MobileMenuIcon from "../../svgs/map.svg";
+
 import AcornLogo from "../../images/acorn-alpha-logo.png";
 
 import ExternalLink from "../../svgs/external-link.svg";
 
 import { scrollToSection, scrollToHome } from "../Scroll";
+import MenuMobile from "../MenuMobile/MenuMobile";
 
 export type HeaderProps = {};
 
 const Header: React.FC<HeaderProps> = ({}) => {
+
+  const [openMenuMobile, setOpenMenuMobile] = useState(false);
   return (
     <header>
       <a title="Acorn Logo" className="logo" onClick={scrollToHome}>
@@ -21,9 +26,9 @@ const Header: React.FC<HeaderProps> = ({}) => {
           {/* <AcornLogo /> */}
         </h1>
       </a>
-      <nav>
+      <nav className="header-menu-desktop">
         <li>
-        <a className="header-menu-item desktop-only" href="/#about" onClick={scrollToSection}>
+        <a className="header-menu-item desktop-only" href="/#why" onClick={scrollToSection}>
             Why Acorn
           </a>
           <a className="header-menu-item desktop-only" href="/#who" onClick={scrollToSection}>
@@ -46,6 +51,15 @@ const Header: React.FC<HeaderProps> = ({}) => {
           </a>
         </li>
       </nav>
+
+       {/* Mobile menu is only visible on smaller screens */}
+       <MenuMobile
+        isOpen={openMenuMobile}
+        closeMenu={() => setOpenMenuMobile(false)}
+      />
+      <div className="menu-mobile-icon" onClick={() => setOpenMenuMobile(true)}>
+        <MobileMenuIcon />
+      </div>
     </header>
   );
 };

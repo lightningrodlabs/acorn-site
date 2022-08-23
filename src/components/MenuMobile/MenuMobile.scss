@@ -1,35 +1,34 @@
 @import "../../mixin";
 
 .menu-mobile-wrapper {
-  position: fixed;
+  // position: fixed;
   z-index: 100;
   box-sizing: border-box;
+  position: absolute;
+  top: 0;
+  left: 0;
 
   .menu-mobile-logo {
-    height: 4rem;
+    height: 2.25rem;
     transition: 0.2s opacity ease;
     width: 100%;
 
     &:hover {
-      opacity: 0.8;
+      opacity: 0.7;
     }
   }
 
   .menu-mobile-nav-socials {
-    padding: 1rem;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     align-items: flex-start;
     .menu-mobile-nav {
       margin-bottom: 2rem;
+      padding: 1rem;
 
       li {
         list-style: none;
         margin-bottom: 1rem;
-
-        &:not(:last-child) {
-          margin-right: 2.5rem;
-        }
 
         a {
           text-decoration: none;
@@ -40,14 +39,18 @@
           transition: 0.2s all ease;
           border-bottom: 0.15rem solid transparent;
 
-          @include media-down(mobile) {
+          @include media-down(tablet) {
             font-size: 1.625rem;
+          }
+
+          @include media-down(mobile) {
+            font-size: 1.5rem;
           }
 
           &:hover {
             text-shadow: 0 0 0.5rem var(--color-text-glow);
             border-bottom: 0.25rem solid var(--color-text-p);
-            transform: translateX(1rem); 
+            transform: translateX(1rem);
           }
         }
       }
@@ -64,13 +67,12 @@
   }
 
   .menu-mobile-close-button {
-    position: fixed;
+    position: absolute;
     right: 0;
     top: 0;
-    z-index: 200;
+    z-index: 2;
     cursor: pointer;
-    padding: 1.5rem;
-
+    padding: 1rem;
 
     .close-icon {
       width: 1.75rem;
@@ -78,7 +80,7 @@
 
       transition: opacity 0.2s ease;
       &:hover {
-        opacity: 0.8;
+        opacity: 0.6;
       }
     }
   }
@@ -90,17 +92,41 @@
   transition: opacity 0.2s ease-in-out;
 }
 
-.menu-mobile-animation-enter-active,
+// Mobile Menu CSS Transition
+
+.menu-mobile-animation-enter {
+  opacity: 0;
+}
+.menu-mobile-animation-enter-active {
+  opacity: 1;
+  transition: opacity 0.1s ease-in;
+  z-index: 1;
+}
 .menu-mobile-animation-enter-done {
   opacity: 1;
+  z-index: 1;
+}
+.menu-mobile-animation-exit {
+  opacity: 1;
+  z-index: 1;
+}
+.menu-mobile-animation-exit-active {
+  opacity: 0;
+  transition: opacity 0.1s ease-out;
 }
 
 .menu-mobile-nav-wrapper {
-  width: 100vw;
-  background-color: var(--color-bg);
-  height: 100vh;
+  width: calc(100vw - 2rem);
+  height: calc(100vh - 2rem);
+  background-color: var(--color-button-bg);
+  box-shadow: 0 0 1rem var(--color-button-shadow);
+  box-sizing: border-box;
+  padding: 1rem 1.5rem;
+  border-radius: 0.75rem;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
+  margin: 1rem;
+  position: relative;
 }

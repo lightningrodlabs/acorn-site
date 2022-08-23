@@ -6,7 +6,7 @@ header {
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-  flex: 1 auto 1;
+  // flex: 1 auto;
   position: absolute;
   top: 0;
   z-index: 2;
@@ -27,7 +27,10 @@ header {
     }
 
     .acorn-logo-wrapper {
-      margin: 1rem;
+      @include media-down(tablet) {
+        margin-left: 1rem;
+      }
+
       .acorn-logo {
         width: 8rem;
       }
@@ -35,15 +38,16 @@ header {
   }
 
   // Nav Menu
-  nav {
+  .header-menu-desktop {
     display: flex;
     flex-direction: row;
-    align-items: space-around;
+    justify-content: right;
+    flex: 1;
 
     li {
       list-style: none;
 
-      @include media-down(mobile) {
+      @include media-down(tablet) {
         display: none;
       }
 
