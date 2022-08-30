@@ -68,6 +68,7 @@ function SEO({ title, description, pathname, children, lang }) {
       {/* <meta name="keywords" content={seo.keywords.join(",")} /> */}
       {/* favicon */}
       <link rel="icon" type="image/png" href="/acorn-icon.png" />
+      <link rel="icon" type="image/x-icon" href="/favicon.ico" />
       {children}
     </>
     //  <Helmet

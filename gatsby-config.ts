@@ -7,7 +7,7 @@ const config: GatsbyConfig = {
     // image for social sharing
     // make sure there is a copy of it in 'static' folder
     image: `/acorn-social-sharing-preview.png`,
-    siteUrl: `https://www.acorn.software`,
+    siteUrl: `https://acorn.software`,
     // keywords: ["Holochain", "project management"],
   },
   // More easily incorporate content into your pages through automatic TypeScript type generation and better GraphQL IntelliSense.

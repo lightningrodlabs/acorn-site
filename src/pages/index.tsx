@@ -11,8 +11,6 @@ import "../global.scss";
 
 //images
 
-import SocialSharePreview from "../images/acorn-social-sharing-preview.png";
-
 import HeroVisual from "../images/acorn-hero-visual.png";
 import HeroVisualMobile from "../images/acorn-hero-visual-mobile.png";
 
@@ -386,10 +384,5 @@ const IndexPage = () => {
 export default IndexPage;
 
 export function Head(props: HeadProps) {
-  return <SEO>
-     <meta name="image" content={SocialSharePreview} />
-     <meta property="og:image" content={SocialSharePreview} />
-     <meta name="twitter:image" content={SocialSharePreview} />
-     <link rel="icon" href="favicon.ico" type="image/x-icon" />
-    </SEO>;
+  return <SEO />;
 }
