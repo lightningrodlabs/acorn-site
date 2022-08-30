@@ -4,7 +4,7 @@
   position: relative;
   flex: 1;
   max-width: 72rem;
- 
+
   // overflow-y: scroll;
 
   .about-acorn-feature-wrapper {
@@ -97,6 +97,17 @@
       }
     }
 
+    @include media-up(tablet) {
+      &.feature-slide-4 {
+        margin-bottom: 4rem;
+      }
+    }
+
+    // for 12.9 inch ipad pro in vertical position:
+    @media only screen and (min-height: 75rem) {
+      min-height: 22vh;
+    }
+
     @include media-down(large) {
       .acorn-feature-content-wrapper {
         margin-right: 3rem;
@@ -116,7 +127,7 @@
       &.feature-slide-2,
       &.feature-slide-4 {
         flex-direction: column;
-  
+
         .acorn-feature-content-wrapper {
           margin-left: 0;
         }

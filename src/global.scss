@@ -277,14 +277,17 @@ p {
 
 .section {
   min-height: 100vh;
-
   display: flex;
   flex-direction: column;
   padding: 4rem;
   box-sizing: border-box;
 
+  // for 12.9 inch ipad pro in vertical position:
+  @media only screen and (min-height: 75rem) {
+    min-height: unset;
+  }
+
   @include media-up(desktop) {
-    justify-content: center;
     padding: 6rem;
   }
 
@@ -293,7 +296,7 @@ p {
     padding: 5rem 3rem 4rem 3rem;
   }
 
-  @media screen and (max-height: 75rem) {
+  @media only screen and (max-height: 75rem) {
     min-height: unset;
   }
 
@@ -394,6 +397,11 @@ p {
   margin-left: 0;
   min-height: 100vh;
   overflow-x: hidden;
+
+  // for 12.9 inch ipad pro in vertical position:
+  @media only screen and (min-height: 75rem) {
+    min-height: unset;
+  }
 
   .hero-content-wrapper {
     flex: 1;
@@ -613,17 +621,15 @@ p {
   padding-right: 0;
   align-items: center;
 
+  // for 12.9 inch ipad pro in vertical position:
+  @media only screen and (min-height: 75rem) {
+    min-height: unset;
+    height: fit-content;
+  }
+
   @include media-down(small-tablet) {
     padding-right: 2rem;
     padding-bottom: 4rem;
-
-    .who-content-wrapper {
-      width: 100%;
-      margin-top: 0;
-    }
-    .who-visual-wrapper {
-      display: none;
-    }
   }
 
   @include media-down(mobile) {
@@ -640,9 +646,20 @@ p {
     flex: 1;
     margin-top: 2rem;
 
+    @include media-up(desktop) {
+      width: unset;
+      margin-top: 0;
+      flex: 1;
+    }
+
     @include media-down(tablet) {
       margin-bottom: 2rem;
       margin-right: 0;
+    }
+
+    @include media-down(small-tablet) {
+      width: 100%;
+      margin-top: 0;
     }
   }
 
@@ -660,8 +677,23 @@ p {
     background-position-x: left;
     margin-top: 4rem;
 
+    // for 12.9 inch ipad pro in vertical position:
+    @media only screen and (min-height: 75rem) {
+     margin-top: 0;
+    }
+
+    @include media-up(desktop) {
+      width: 50%;
+      max-width: 40rem;
+    }
+
     @include media-down(tablet) {
       max-width: 20rem;
+      margin-top: 0;
+    }
+
+    @include media-down(small-tablet) {
+      display: none;
     }
   }
 
@@ -713,6 +745,11 @@ p {
   height: 85vh;
   min-height: unset;
   padding-bottom: 4rem;
+
+  // for 12.9 inch ipad pro in vertical position:
+  @media only screen and (min-height: 75rem) {
+    height: fit-content;
+  }
 
   @include media-down(tablet) {
     min-height: unset;
@@ -840,13 +877,13 @@ a button.button-wrapper {
 
 // for short screen heights
 
-@media (max-height: 42rem) {
+@media only screen and (max-height: 42rem) {
   .section.who {
     height: auto;
     padding: 4rem 0 3rem 3rem;
     margin-top: 4rem;
 
-    @include media-down(tablet) {
+    @include media-down(small-tablet) {
       padding-right: 3rem;
     }
 
