@@ -11,6 +11,8 @@ import "../global.scss";
 
 //images
 
+import SocialSharePreview from "../images/acorn-social-sharing-preview.png";
+
 import HeroVisual from "../images/acorn-hero-visual.png";
 import HeroVisualMobile from "../images/acorn-hero-visual-mobile.png";
 
@@ -21,12 +23,9 @@ import FeatureVisualFourMap from "../images/acorn-feature-vis-4-map.png";
 import FeatureVisualFourTable from "../images/acorn-feature-vis-4-table.png";
 import FeatureVisualFourPriority from "../images/acorn-feature-vis-4-priority.png";
 
-import WhoIsInvolvedVisual from "../images/acorn-who-is-involved.png";
-
 import DownloadMac from "../svgs/apple.svg";
 import DownloadWindows from "../svgs/windows.svg";
 import DownloadLinux from "../svgs/linux.svg";
-import MenuMobile from "../components/MenuMobile/MenuMobile";
 import FeatureSlide from "../components/FeatureSlide/FeatureSlide";
 import { scrollToSection } from "../components/Scroll";
 import { HeadProps } from "gatsby";
@@ -328,7 +327,6 @@ const IndexPage = () => {
           </div>
 
           <div className="who-visual-wrapper">
-            {/* <img src={WhoIsInvolvedVisual} /> */}
           </div>
         </div>
         {/* Download Section */}
@@ -388,5 +386,10 @@ const IndexPage = () => {
 export default IndexPage;
 
 export function Head(props: HeadProps) {
-  return <SEO />;
+  return <SEO>
+     <meta name="image" content={SocialSharePreview} />
+     <meta property="og:image" content={SocialSharePreview} />
+     <meta name="twitter:image" content={SocialSharePreview} />
+     <link rel="icon" href="favicon.ico" type="image/x-icon" />
+    </SEO>;
 }
