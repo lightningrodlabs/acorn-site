@@ -36,6 +36,33 @@ const config: GatsbyConfig = {
         },
       },
     },
+    // Amplitude Analytics
+    {
+      resolve: `gatsby-plugin-amplitude-analytics`,
+      options: {
+        // Specify the API key for your Amplitude Project (required)
+        apiKey: "1bb947baf373378369d2122c6d3eef53",
+        // Puts tracking script in the head instead of the body (optional)
+        head: false,
+        // Prevents loading Amplitude and logging events if visitors have "Do Not Track" enabled (optional)
+        respectDNT: true,
+        // Avoids sending pageview hits from custom paths (optional)
+        exclude: ["/preview/**", "/do-not-track/me/too/"],
+        // Override the default event types (optional)
+        eventTypes: {
+          outboundLinkClick: 'OUTBOUND_LINK_CLICK',
+          pageView: 'PAGE_VIEW',
+        },
+        // Amplitude JS SDK configuration options (optional)
+        amplitudeConfig: {
+          saveEvents: true,
+          includeUtm: true,
+          includeReferrer: true
+        },
+        // Specify NODE_ENVs in which the plugin should be loaded (optional)
+        environments: ["production"],
+      },
+    },
   ],
 };
 
