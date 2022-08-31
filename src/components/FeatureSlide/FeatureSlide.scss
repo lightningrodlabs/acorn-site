@@ -123,6 +123,7 @@
     @include media-down(mobile) {
       flex-direction: column;
       height: fit-content;
+      margin-bottom: 3rem;
 
       &.feature-slide-2,
       &.feature-slide-4 {
