@@ -364,7 +364,7 @@ const IndexPage = () => {
               text="Download for Linux"
               visualIcon={<DownloadLinux />}
               withBackground
-              title="https://github.com/lightningrodlabs/acorn/releases/download/v2.1.1-alpha/Acorn-2.1.0-alpha.AppImage"
+              title="https://github.com/lightningrodlabs/acorn/releases/download/v2.1.1-alpha/Acorn-2.1.1-alpha.AppImage"
               onClick={() => {
                 window.open(
                   "https://github.com/lightningrodlabs/acorn/releases/download/v2.1.1-alpha/Acorn-2.1.1-alpha.AppImage",
