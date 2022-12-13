@@ -340,10 +340,10 @@ const IndexPage = () => {
               text="Download for MacOS"
               visualIcon={<DownloadMac />}
               withBackground
-              title="https://github.com/lightningrodlabs/acorn/releases/download/v3.0.0-alpha/Acorn-3.0.0-alpha.dmg"
+              title="https://github.com/lightningrodlabs/acorn/releases/download/v3.0.0-alpha/Acorn.3.0.0-alpha.darwin-x64.zip"
               onClick={() => {
                 window.open(
-                  "https://github.com/lightningrodlabs/acorn/releases/download/v3.0.0-alpha/Acorn-3.0.0-alpha.dmg",
+                  "https://github.com/lightningrodlabs/acorn/releases/download/v3.0.0-alpha/Acorn.3.0.0-alpha.darwin-x64.zip",
                   "_blank"
                 );
               }}
