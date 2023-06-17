@@ -340,10 +340,10 @@ const IndexPage = () => {
               text="Download for MacOS"
               visualIcon={<DownloadMac />}
               withBackground
-              title="https://github.com/lightningrodlabs/acorn/releases/tag/v4.0.0-alpha"
+              title="https://github.com/lightningrodlabs/acorn/releases/tag/v6.1.0-alpha"
               onClick={() => {
                 window.open(
-                  "https://github.com/lightningrodlabs/acorn/releases/tag/v4.0.0-alpha",
+                  "https://github.com/lightningrodlabs/acorn/releases/tag/v6.1.0-alpha",
                   "_blank"
                 );
               }}
@@ -352,10 +352,10 @@ const IndexPage = () => {
               text="Download for Windows"
               visualIcon={<DownloadWindows />}
               withBackground
-              title="https://github.com/lightningrodlabs/acorn/releases/download/v4.0.0-alpha/Acorn.Setup.4.0.0-alpha.exe"
+              title="https://github.com/lightningrodlabs/acorn/releases/download/v4.0.0-alpha/Acorn.Setup.6.1.0-alpha.exe"
               onClick={() => {
                 window.open(
-                  "https://github.com/lightningrodlabs/acorn/releases/download/v4.0.0-alpha/Acorn.Setup.4.0.0-alpha.exe",
+                  "https://github.com/lightningrodlabs/acorn/releases/download/v4.0.0-alpha/Acorn.Setup.6.1.0-alpha.exe",
                   "_blank"
                 );
               }}
@@ -364,10 +364,10 @@ const IndexPage = () => {
               text="Download for Linux"
               visualIcon={<DownloadLinux />}
               withBackground
-              title="https://github.com/lightningrodlabs/acorn/releases/download/v4.0.0-alpha/Acorn-4.0.0-alpha.AppImage"
+              title="https://github.com/lightningrodlabs/acorn/releases/download/v4.0.0-alpha/Acorn-6.1.0-alpha.AppImage"
               onClick={() => {
                 window.open(
-                  "https://github.com/lightningrodlabs/acorn/releases/download/v4.0.0-alpha/Acorn-4.0.0-alpha.AppImage",
+                  "https://github.com/lightningrodlabs/acorn/releases/download/v4.0.0-alpha/Acorn-6.1.0-alpha.AppImage",
                   "_blank"
                 );
               }}
