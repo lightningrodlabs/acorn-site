@@ -3,7 +3,7 @@ import type { GatsbyConfig } from "gatsby";
 const config: GatsbyConfig = {
   siteMetadata: {
     title: `Acorn | Open Source P2P Project Management for Software Teams`,
-    description: `Powered by Holochain, Acorn is designed and built as a scrum-alternative, Agile Development Pattern for distributed software development teams.`,
+    description: `Agile project management made simple. Open-source, peer-to-peer, perfect for remote teams.`,
     // image for social sharing
     // make sure there is a copy of it in 'static' folder
     image: `/acorn-social-sharing-preview.png`,

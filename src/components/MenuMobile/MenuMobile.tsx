@@ -6,6 +6,7 @@ import "./MenuMobile.scss";
 
 // images
 import AcornLogo from "../../images/acorn-alpha-logo.png";
+import PoweredByHolochain from "../../images/acorn-powered-by-holochain.png";
 import MobileMenuCloseIcon from "../../svgs/x.svg";
 import ExternalLink from "../../svgs/external-link.svg";
 
@@ -43,8 +44,9 @@ const MenuMobile: React.FC<MenuMobileProps> = ({ isOpen, closeMenu }) => {
               <MobileMenuCloseIcon className="close-icon" />
             </div>
             <a title="Acorn Logo" onClick={scrollToHome}>
-              <h1>
+              <h1 className="menu-mobile-logo-wrapper">
                 <img src={AcornLogo} className="menu-mobile-logo" />
+                <img className="menu-mobile-powered-holochain" src={PoweredByHolochain} alt="Powered by Holochain"/>
               </h1>
             </a>
 

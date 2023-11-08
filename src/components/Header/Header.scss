@@ -1,10 +1,10 @@
 @import "../../mixin";
 
 header {
-  padding: 0.5rem 2rem;
+  padding: 2rem;
   display: flex;
   flex-direction: row;
-  align-items: center;
+  align-items: flex-start;
   justify-content: space-between;
   // flex: 1 auto;
   position: absolute;
@@ -16,7 +16,7 @@ header {
   -moz-osx-font-smoothing: grayscale;
 
   @include media-down(tablet) {
-    padding: 1rem;
+    padding: 1.5rem 1rem;
     width: 100vw;
     box-sizing: border-box;
   }
@@ -27,6 +27,9 @@ header {
     }
 
     .acorn-logo-wrapper {
+      display: flex;
+      flex-direction: column;
+      
       @include media-down(tablet) {
         margin-left: 1rem;
       }
@@ -34,6 +37,11 @@ header {
       .acorn-logo {
         width: 8rem;
       }
+    }
+
+    .powered-holochain {
+      width: 16rem;
+      margin-top: 0.5rem
     }
   }
 

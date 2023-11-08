@@ -118,9 +118,11 @@ const IndexPage = () => {
               <div className="tag-wrapper tertiary">project management</div>
             </div>
             <h1 className="heading non-tablet">
-              Peer-to-Peer Agile <br />
-              Project Management <br />
-              For Software Teams
+              Project mangament
+              <br />
+              redefined for
+              <br />
+              distributed teams
             </h1>
 
             <h1 className="heading tablet">
@@ -128,10 +130,9 @@ const IndexPage = () => {
             </h1>
 
             <p>
-              Acorn is an open-source, peer-to-peer project management
-              application. It is designed and built as a scrum-alternative,
-              Agile Development Pattern for distributed software development
-              teams.
+              Agile project management made simple.
+              <br />
+              Open-source. Peer-to-peer. Perfect for remote teams.
             </p>
 
             <div className="buttons-row">
@@ -171,7 +172,7 @@ const IndexPage = () => {
         <div
           id="why"
           ref={featuresWrapperRef}
-          className='section why'
+          className="section why"
           style={{
             backgroundColor: `rgb(${bgColor.join(",")})`,
           }}
@@ -199,9 +200,8 @@ const IndexPage = () => {
                     Holochain
                   </a>{" "}
                   application, meaning it runs on decentralized peer-to-peer
-                  computing and can be used without server infrastructure or a
-                  hosting service. The users of a particular Acorn instance are
-                  its hosting power.
+                  computing letting you manage projects without needing any
+                  servers or external hosting.
                 </p>
               }
               buttonLink="https://www.holochain.org/"
@@ -213,11 +213,7 @@ const IndexPage = () => {
               // isActive={activeSlide === ActiveSlide.Feature2}
               slideNumber="2"
               title="Intended Outcomes, not goals"
-              description="In Acorn's ontology projects are managed through the lens
-                of Intended Outcomes, their dependencies, Scope, and
-                Achievement Status in a Plan-Do-Check-Act Cycle process.
-                This helps you and your distributed team stay on track
-                while working on a complex project."
+              description="Acorn simplifies project tracking with outcome-based management and a cyclical process, perfect for keeping distributed teams on the same page."
               buttonLink="https://docs.acorn.software/about-acorn/the-ontology-of-acorn"
               visual={FeatureVisualTwo}
               className="feature-slide-2"
@@ -226,12 +222,9 @@ const IndexPage = () => {
             <FeatureSlide
               // isActive={activeSlide === ActiveSlide.Feature3}
               slideNumber="3"
-              title="More intelligent project management"
+              title="Smarter project management with Acorn"
               description="Acorn provides the sweet-spot combination of annotated and
-                computed metadata to help you and your team make sense of
-                the complexity of your project, make measurable
-                estimations of Outcome achievement durations, and to see
-                the progress status of the project as a whole."
+                computed metadata to easily understand your project's details, make estimates accurately, and check your whole project's progress at a glance."
               buttonLink="https://docs.acorn.software/about-acorn/the-ontology-of-acorn#outcome-scope"
               visual={FeatureVisualThree}
               className="feature-slide-3"
@@ -242,32 +235,32 @@ const IndexPage = () => {
               <FeatureSlide
                 // isActive={activeSlide === ActiveSlide.Feature4}
                 slideNumber="4"
-                title="Multiple lenses for your project"
+                title="See your project your way"
                 description={
                   <p>
-                    Each project view in Acorn helps you and your team members
-                    when you have a different kind of focus. There is{" "}
+                    Acorn comes with different project views to match your
+                    focus. Use{" "}
                     <a
                       href="https://docs.acorn.software/project-views/map-view"
                       target="_blank"
                     >
                       Map View
                     </a>{" "}
-                    to offer a high-level overview,{" "}
+                    for a big-picture outlook,{" "}
                     <a
                       href="https://docs.acorn.software/project-views/table-view"
                       target="_blank"
                     >
                       Table View
                     </a>{" "}
-                    which is task-oriented, and{" "}
+                    to zero in on tasks, and{" "}
                     <a
                       href="https://docs.acorn.software/project-views/high-priority-view"
                       target="_blank"
                     >
                       Priority View
                     </a>{" "}
-                    for aligning your team.
+                    to keep your team aligned.
                   </p>
                 }
                 isFramedVisual
@@ -324,8 +317,7 @@ const IndexPage = () => {
             />
           </div>
 
-          <div className="who-visual-wrapper">
-          </div>
+          <div className="who-visual-wrapper"></div>
         </div>
         {/* Download Section */}
         <div className="section download" id="download">

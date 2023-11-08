@@ -8,20 +8,34 @@
   top: 0;
   left: 0;
 
-  .menu-mobile-logo {
-    height: 2.25rem;
-    transition: 0.2s opacity ease;
-    width: 100%;
+  .menu-mobile-logo-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 
-    &:hover {
-      opacity: 0.7;
+    .menu-mobile-logo {
+      transition: 0.2s opacity ease;
+      max-width: 15rem;
+      margin-bottom: 0.75rem;
+  
+      &:hover {
+        opacity: 0.7;
+      }
+    }
+
+    .menu-mobile-powered-holochain {
+      max-width: 18rem;
     }
   }
+
+
 
   .menu-mobile-nav-socials {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
+
+
     .menu-mobile-nav {
       margin-bottom: 2rem;
       padding: 1rem;
@@ -129,4 +143,5 @@
   flex-direction: column;
   margin: 1rem;
   position: relative;
+  text-align: center;
 }

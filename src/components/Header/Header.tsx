@@ -3,9 +3,8 @@ import "./Header.scss";
 
 // images
 import MobileMenuIcon from "../../svgs/map.svg";
-
 import AcornLogo from "../../images/acorn-alpha-logo.png";
-
+import PoweredByHolochain from "../../images/acorn-powered-by-holochain.png";
 import ExternalLink from "../../svgs/external-link.svg";
 
 import { scrollToSection, scrollToHome } from "../Scroll";
@@ -22,8 +21,8 @@ const Header: React.FC<HeaderProps> = ({}) => {
         <h1>
           <div className="acorn-logo-wrapper">
            <img className="acorn-logo" src={AcornLogo} alt="Acorn Logo"/>
+           <img className="powered-holochain" src={PoweredByHolochain} alt="Powered by Holochain"/>
           </div>
-          {/* <AcornLogo /> */}
         </h1>
       </a>
       <nav className="header-menu-desktop">
