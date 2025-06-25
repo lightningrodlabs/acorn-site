@@ -17,6 +17,10 @@ export type ButtonProps = {
   onClick?: () => void;
   href?: string;
   title?: string;
+  maxWidth?: string;
+  maxHeight?: string;
+  height?: string;
+  margin?: string;
 };
 
 const Button: React.FC<ButtonProps> = ({
@@ -29,6 +33,10 @@ const Button: React.FC<ButtonProps> = ({
   onClick = () => {},
   title,
   href,
+  maxWidth,
+  maxHeight,
+  height,
+  margin,
 }) => {
   return (
     <button
@@ -38,6 +46,7 @@ const Button: React.FC<ButtonProps> = ({
       } ${externalLinkIcon ? "with-external-link" : ""}`}
       onClick={onClick}
       data-href={href}
+      style={{ maxWidth: maxWidth ? maxWidth : "", maxHeight: maxHeight ? maxHeight : "", height: height ? height: "", margin: margin ? margin : "" }}
     >
       {visualIcon && <span className="visual-icon">{visualIcon}</span>}
       {text}

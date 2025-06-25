@@ -334,6 +334,20 @@ p {
   }
 }
 
+.column {
+  display: flex;
+  flex-direction: column;
+}
+
+.row {
+  display: flex;
+  flex-direction: row;
+}
+
+.items-center {
+  align-items: center;
+}
+
 .columns-wrapper {
   display: flex;
   flex-direction: row;
