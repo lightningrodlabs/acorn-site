@@ -323,47 +323,88 @@ const IndexPage = () => {
         <div className="section download" id="download">
           <h2>Download the latest Acorn alpha release</h2>
           <p>
-            Available as native desktop app for MacOS, Windows and Linux. <br />{" "}
+            Available as native desktop app for macOS, Windows and Linux. <br />{" "}
             Download and install the latest version of Acorn's alpha release to
             get started.
           </p>
-          <div className="buttons-row three">
-            <Button
-              text="Download for MacOS"
-              visualIcon={<DownloadMac />}
-              withBackground
-              title="https://github.com/lightningrodlabs/acorn/releases/tag/v9.8.1-alpha"
-              onClick={() => {
-                window.open(
-                  "https://github.com/lightningrodlabs/acorn/releases/tag/v9.8.1-alpha",
-                  "_blank"
-                );
-              }}
-            />
-            <Button
-              text="Download for Windows"
-              visualIcon={<DownloadWindows />}
-              withBackground
-              title="https://github.com/lightningrodlabs/acorn/releases/download/v9.8.1-alpha/Acorn.Setup.9.8.1-alpha.exe"
-              onClick={() => {
-                window.open(
-                  "https://github.com/lightningrodlabs/acorn/releases/download/v9.8.1-alpha/Acorn.Setup.9.8.1-alpha.exe",
-                  "_blank"
-                );
-              }}
-            />
-            <Button
-              text="Download for Linux"
-              visualIcon={<DownloadLinux />}
-              withBackground
-              title="https://github.com/lightningrodlabs/acorn/releases/download/v9.8.1-alpha/Acorn-9.8.1-alpha.AppImage"
-              onClick={() => {
-                window.open(
-                  "https://github.com/lightningrodlabs/acorn/releases/download/v9.8.1-alpha/Acorn-9.8.1-alpha.AppImage",
-                  "_blank"
-                );
-              }}
-            />
+          <div className="buttons-row three row">
+            <div className="column">
+              <Button
+                text="Download for macOS (Apple Silicon)"
+                visualIcon={<DownloadMac />}
+                withBackground
+                maxWidth="300px"
+                margin="4px"
+                title="https://github.com/lightningrodlabs/acorn-desktop/releases/download/v11.3.1/org.lightningrodlabs.acorn-11.3.1-arm64.dmg"
+                onClick={() => {
+                  window.open(
+                    "https://github.com/lightningrodlabs/acorn-desktop/releases/download/v11.3.1/org.lightningrodlabs.acorn-11.3.1-arm64.dmg",
+                    "_blank"
+                  );
+                }}
+              />
+              <Button
+                text="Download for macOS (Intel)"
+                visualIcon={<DownloadMac />}
+                withBackground
+                maxWidth="300px"
+                margin="4px"
+                title="https://github.com/lightningrodlabs/acorn-desktop/releases/download/v11.3.1/org.lightningrodlabs.acorn-11.3.1-x64.dmg"
+                onClick={() => {
+                  window.open(
+                    "https://github.com/lightningrodlabs/acorn-desktop/releases/download/v11.3.1/org.lightningrodlabs.acorn-11.3.1-x64.dmg",
+                    "_blank"
+                  );
+                }}
+              />
+            </div>
+            <div className="column" style={{ margin: "0 20px" }}>
+              <Button
+                text="Download for Linux (.deb)"
+                visualIcon={<DownloadLinux />}
+                withBackground
+                maxWidth="300px"
+                margin="4px"
+                title="https://github.com/lightningrodlabs/acorn-desktop/releases/download/v11.3.1/org.lightningrodlabs.acorn_11.3.1_amd64.deb"
+                onClick={() => {
+                  window.open(
+                    "https://github.com/lightningrodlabs/acorn-desktop/releases/download/v11.3.1/org.lightningrodlabs.acorn_11.3.1_amd64.deb",
+                    "_blank"
+                  );
+                }}
+              />
+              <Button
+                text="Download for Linux (AppImage)"
+                visualIcon={<DownloadLinux />}
+                withBackground
+                maxWidth="300px"
+                margin="4px"
+                title="https://github.com/lightningrodlabs/acorn-desktop/releases/download/v11.3.1/org.lightningrodlabs.acorn-11.3.1.AppImage"
+                onClick={() => {
+                  window.open(
+                    "https://github.com/lightningrodlabs/acorn-desktop/releases/download/v11.3.1/org.lightningrodlabs.acorn-11.3.1.AppImage",
+                    "_blank"
+                  );
+                }}
+              />
+            </div>
+            <div className="column">
+              <Button
+                text="Download for Windows"
+                visualIcon={<DownloadWindows />}
+                withBackground
+                maxHeight="90px"
+                margin="4px"
+                height="90px"
+                title="https://github.com/lightningrodlabs/acorn-desktop/releases/download/v11.3.1/org.lightningrodlabs.acorn-11.3.1-setup.exe"
+                onClick={() => {
+                  window.open(
+                    "https://github.com/lightningrodlabs/acorn-desktop/releases/download/v11.3.1/org.lightningrodlabs.acorn-11.3.1-setup.exe",
+                    "_blank"
+                  );
+                }}
+              />
+            </div>
           </div>
         </div>
 
