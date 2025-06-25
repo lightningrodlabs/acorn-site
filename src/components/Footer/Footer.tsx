@@ -25,7 +25,7 @@ const Footer: React.FC<FooterProps> = ({}) => {
 
       <div className="footer-row second">
         <p>
-          © 2020-2022 Harris-Braun Enterprises, LLC, operating as{" "}
+          © 2020-2025 Harris-Braun Enterprises, LLC, operating as{" "}
           <a href="https://lightningrodlabs.org/" target="_blank">
             {" "}
             Lightningrod Labs

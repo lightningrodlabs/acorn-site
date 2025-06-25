@@ -335,6 +335,8 @@ const IndexPage = () => {
                 withBackground
                 maxWidth="300px"
                 margin="4px"
+                height="70px"
+                lineHeight="1.2"
                 title="https://github.com/lightningrodlabs/acorn-desktop/releases/download/v11.3.1/org.lightningrodlabs.acorn-11.3.1-arm64.dmg"
                 onClick={() => {
                   window.open(
@@ -349,6 +351,8 @@ const IndexPage = () => {
                 withBackground
                 maxWidth="300px"
                 margin="4px"
+                height="70px"
+                lineHeight="1.2"
                 title="https://github.com/lightningrodlabs/acorn-desktop/releases/download/v11.3.1/org.lightningrodlabs.acorn-11.3.1-x64.dmg"
                 onClick={() => {
                   window.open(
@@ -365,6 +369,8 @@ const IndexPage = () => {
                 withBackground
                 maxWidth="300px"
                 margin="4px"
+                height="70px"
+                lineHeight="1.2"
                 title="https://github.com/lightningrodlabs/acorn-desktop/releases/download/v11.3.1/org.lightningrodlabs.acorn_11.3.1_amd64.deb"
                 onClick={() => {
                   window.open(
@@ -379,6 +385,8 @@ const IndexPage = () => {
                 withBackground
                 maxWidth="300px"
                 margin="4px"
+                height="70px"
+                lineHeight="1.2"
                 title="https://github.com/lightningrodlabs/acorn-desktop/releases/download/v11.3.1/org.lightningrodlabs.acorn-11.3.1.AppImage"
                 onClick={() => {
                   window.open(
@@ -395,7 +403,8 @@ const IndexPage = () => {
                 withBackground
                 maxHeight="90px"
                 margin="4px"
-                height="90px"
+                height="70px"
+                lineHeight="1.2"
                 title="https://github.com/lightningrodlabs/acorn-desktop/releases/download/v11.3.1/org.lightningrodlabs.acorn-11.3.1-setup.exe"
                 onClick={() => {
                   window.open(
