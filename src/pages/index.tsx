@@ -5,14 +5,9 @@ import Footer from "../components/Footer/Footer";
 
 import SEO from "../components/seo";
 
-import { CSSTransition } from "react-transition-group";
-
 import "../global.scss";
 
 //images
-
-import HeroVisual from "../images/acorn-hero-visual.png";
-import HeroVisualMobile from "../images/acorn-hero-visual-mobile.png";
 
 import FeatureVisualOne from "../images/acorn-feature-vis-1.png";
 import FeatureVisualTwo from "../images/acorn-feature-vis-2.png";
@@ -295,17 +290,16 @@ const IndexPage = () => {
               <a href="https://sprillow.com" target="_blank">
                 Sprillow
               </a>{" "}
-              undertook a design process and began building Acorn on Holochain
-              and continues to today. In June 2022 the first major release of
-              Acorn (Alpha) was published and it's currently in an Alpha testing
-              phase.
+              undertook a design process, began building Acorn on Holochain and
+              in June 2022 the first major release of Acorn (Alpha) was
+              published.
             </p>
             <p>
               <a href="https://lightningrodlabs.org" target="_blank">
                 Lightningrod Labs
               </a>{" "}
               is the container for the continuous development of Acorn alongside
-              some other projects powered by Holochain.
+              other projects powered by Holochain.
             </p>
 
             <Button
@@ -324,7 +318,7 @@ const IndexPage = () => {
           <h2>Download the latest Acorn alpha release</h2>
           <p>
             Available as native desktop app for macOS, Windows and Linux. <br />{" "}
-            Download and install the latest version of Acorn's alpha release to
+            Download and install the latest version of Acorn's alpha release (11.3.2) to
             get started.
           </p>
           <div className="buttons-row three row">
