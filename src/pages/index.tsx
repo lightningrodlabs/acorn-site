@@ -337,10 +337,10 @@ const IndexPage = () => {
                 margin="4px"
                 height="70px"
                 lineHeight="1.2"
-                title="https://github.com/lightningrodlabs/acorn-desktop/releases/download/v11.3.1/org.lightningrodlabs.acorn-11.3.1-arm64.dmg"
+                title="https://github.com/lightningrodlabs/acorn-desktop/releases/download/v11.3.2/org.lightningrodlabs.acorn-11.3.2-arm64.dmg"
                 onClick={() => {
                   window.open(
-                    "https://github.com/lightningrodlabs/acorn-desktop/releases/download/v11.3.1/org.lightningrodlabs.acorn-11.3.1-arm64.dmg",
+                    "https://github.com/lightningrodlabs/acorn-desktop/releases/download/v11.3.2/org.lightningrodlabs.acorn-11.3.2-arm64.dmg",
                     "_blank"
                   );
                 }}
@@ -353,10 +353,10 @@ const IndexPage = () => {
                 margin="4px"
                 height="70px"
                 lineHeight="1.2"
-                title="https://github.com/lightningrodlabs/acorn-desktop/releases/download/v11.3.1/org.lightningrodlabs.acorn-11.3.1-x64.dmg"
+                title="https://github.com/lightningrodlabs/acorn-desktop/releases/download/v11.3.2/org.lightningrodlabs.acorn-11.3.2-x64.dmg"
                 onClick={() => {
                   window.open(
-                    "https://github.com/lightningrodlabs/acorn-desktop/releases/download/v11.3.1/org.lightningrodlabs.acorn-11.3.1-x64.dmg",
+                    "https://github.com/lightningrodlabs/acorn-desktop/releases/download/v11.3.2/org.lightningrodlabs.acorn-11.3.2-x64.dmg",
                     "_blank"
                   );
                 }}
@@ -371,10 +371,10 @@ const IndexPage = () => {
                 margin="4px"
                 height="70px"
                 lineHeight="1.2"
-                title="https://github.com/lightningrodlabs/acorn-desktop/releases/download/v11.3.1/org.lightningrodlabs.acorn_11.3.1_amd64.deb"
+                title="https://github.com/lightningrodlabs/acorn-desktop/releases/download/v11.3.2/org.lightningrodlabs.acorn_11.3.2_amd64.deb"
                 onClick={() => {
                   window.open(
-                    "https://github.com/lightningrodlabs/acorn-desktop/releases/download/v11.3.1/org.lightningrodlabs.acorn_11.3.1_amd64.deb",
+                    "https://github.com/lightningrodlabs/acorn-desktop/releases/download/v11.3.2/org.lightningrodlabs.acorn_11.3.2_amd64.deb",
                     "_blank"
                   );
                 }}
@@ -387,10 +387,10 @@ const IndexPage = () => {
                 margin="4px"
                 height="70px"
                 lineHeight="1.2"
-                title="https://github.com/lightningrodlabs/acorn-desktop/releases/download/v11.3.1/org.lightningrodlabs.acorn-11.3.1.AppImage"
+                title="https://github.com/lightningrodlabs/acorn-desktop/releases/download/v11.3.2/org.lightningrodlabs.acorn-11.3.2.AppImage"
                 onClick={() => {
                   window.open(
-                    "https://github.com/lightningrodlabs/acorn-desktop/releases/download/v11.3.1/org.lightningrodlabs.acorn-11.3.1.AppImage",
+                    "https://github.com/lightningrodlabs/acorn-desktop/releases/download/v11.3.2/org.lightningrodlabs.acorn-11.3.2.AppImage",
                     "_blank"
                   );
                 }}
@@ -405,10 +405,10 @@ const IndexPage = () => {
                 margin="4px"
                 height="70px"
                 lineHeight="1.2"
-                title="https://github.com/lightningrodlabs/acorn-desktop/releases/download/v11.3.1/org.lightningrodlabs.acorn-11.3.1-setup.exe"
+                title="https://github.com/lightningrodlabs/acorn-desktop/releases/download/v11.3.2/org.lightningrodlabs.acorn-11.3.2-setup.exe"
                 onClick={() => {
                   window.open(
-                    "https://github.com/lightningrodlabs/acorn-desktop/releases/download/v11.3.1/org.lightningrodlabs.acorn-11.3.1-setup.exe",
+                    "https://github.com/lightningrodlabs/acorn-desktop/releases/download/v11.3.2/org.lightningrodlabs.acorn-11.3.2-setup.exe",
                     "_blank"
                   );
                 }}
