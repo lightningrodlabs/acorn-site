@@ -318,7 +318,7 @@ const IndexPage = () => {
           <h2>Download the latest Acorn alpha release</h2>
           <p>
             Available as native desktop app for macOS, Windows and Linux. <br />{" "}
-            Download and install the latest version of Acorn's alpha release (11.3.2) to
+            Download and install the latest version of Acorn's alpha release (11.3.4) to
             get started.
           </p>
           <div className="buttons-row three row">
@@ -331,10 +331,10 @@ const IndexPage = () => {
                 margin="4px"
                 height="70px"
                 lineHeight="1.2"
-                title="https://github.com/lightningrodlabs/acorn-desktop/releases/download/v11.3.2/org.lightningrodlabs.acorn-11.3.2-arm64.dmg"
+                title="https://github.com/lightningrodlabs/acorn-desktop/releases/download/v11.3.4/org.lightningrodlabs.acorn-11.3.4-arm64.dmg"
                 onClick={() => {
                   window.open(
-                    "https://github.com/lightningrodlabs/acorn-desktop/releases/download/v11.3.2/org.lightningrodlabs.acorn-11.3.2-arm64.dmg",
+                    "https://github.com/lightningrodlabs/acorn-desktop/releases/download/v11.3.4/org.lightningrodlabs.acorn-11.3.4-arm64.dmg",
                     "_blank"
                   );
                 }}
@@ -347,10 +347,10 @@ const IndexPage = () => {
                 margin="4px"
                 height="70px"
                 lineHeight="1.2"
-                title="https://github.com/lightningrodlabs/acorn-desktop/releases/download/v11.3.2/org.lightningrodlabs.acorn-11.3.2-x64.dmg"
+                title="https://github.com/lightningrodlabs/acorn-desktop/releases/download/v11.3.4/org.lightningrodlabs.acorn-11.3.4-x64.dmg"
                 onClick={() => {
                   window.open(
-                    "https://github.com/lightningrodlabs/acorn-desktop/releases/download/v11.3.2/org.lightningrodlabs.acorn-11.3.2-x64.dmg",
+                    "https://github.com/lightningrodlabs/acorn-desktop/releases/download/v11.3.4/org.lightningrodlabs.acorn-11.3.4-x64.dmg",
                     "_blank"
                   );
                 }}
@@ -365,10 +365,26 @@ const IndexPage = () => {
                 margin="4px"
                 height="70px"
                 lineHeight="1.2"
-                title="https://github.com/lightningrodlabs/acorn-desktop/releases/download/v11.3.2/org.lightningrodlabs.acorn_11.3.2_amd64.deb"
+                title="https://github.com/lightningrodlabs/acorn-desktop/releases/download/v11.3.4/org.lightningrodlabs.acorn-11.3.4-amd64.deb"
                 onClick={() => {
                   window.open(
-                    "https://github.com/lightningrodlabs/acorn-desktop/releases/download/v11.3.2/org.lightningrodlabs.acorn_11.3.2_amd64.deb",
+                    "https://github.com/lightningrodlabs/acorn-desktop/releases/download/v11.3.4/org.lightningrodlabs.acorn-11.3.4-amd64.deb",
+                    "_blank"
+                  );
+                }}
+              />
+              <Button
+                text="Download for Linux (.deb arm)"
+                visualIcon={<DownloadLinux />}
+                withBackground
+                maxWidth="300px"
+                margin="4px"
+                height="70px"
+                lineHeight="1.2"
+                title="https://github.com/lightningrodlabs/acorn-desktop/releases/download/v11.3.4/org.lightningrodlabs.acorn-11.3.4-arm64.deb"
+                onClick={() => {
+                  window.open(
+                    "https://github.com/lightningrodlabs/acorn-desktop/releases/download/v11.3.4/org.lightningrodlabs.acorn-11.3.4-arm64.deb",
                     "_blank"
                   );
                 }}
@@ -381,10 +397,26 @@ const IndexPage = () => {
                 margin="4px"
                 height="70px"
                 lineHeight="1.2"
-                title="https://github.com/lightningrodlabs/acorn-desktop/releases/download/v11.3.2/org.lightningrodlabs.acorn-11.3.2.AppImage"
+                title="https://github.com/lightningrodlabs/acorn-desktop/releases/download/v11.3.4/org.lightningrodlabs.acorn-11.3.4-x86_64.AppImage"
                 onClick={() => {
                   window.open(
-                    "https://github.com/lightningrodlabs/acorn-desktop/releases/download/v11.3.2/org.lightningrodlabs.acorn-11.3.2.AppImage",
+                    "https://github.com/lightningrodlabs/acorn-desktop/releases/download/v11.3.4/org.lightningrodlabs.acorn-11.3.4-x86_64.AppImage",
+                    "_blank"
+                  );
+                }}
+              />
+              <Button
+                text="Download for Linux (AppImage-arm)"
+                visualIcon={<DownloadLinux />}
+                withBackground
+                maxWidth="300px"
+                margin="4px"
+                height="70px"
+                lineHeight="1.2"
+                title="https://github.com/lightningrodlabs/acorn-desktop/releases/download/v11.3.4/org.lightningrodlabs.acorn-11.3.4-arm64.AppImage"
+                onClick={() => {
+                  window.open(
+                    "https://github.com/lightningrodlabs/acorn-desktop/releases/download/v11.3.4/org.lightningrodlabs.acorn-11.3.4-arm64.AppImage",
                     "_blank"
                   );
                 }}
@@ -399,10 +431,10 @@ const IndexPage = () => {
                 margin="4px"
                 height="70px"
                 lineHeight="1.2"
-                title="https://github.com/lightningrodlabs/acorn-desktop/releases/download/v11.3.2/org.lightningrodlabs.acorn-11.3.2-setup.exe"
+                title="https://github.com/lightningrodlabs/acorn-desktop/releases/download/v11.3.4/org.lightningrodlabs.acorn-11.3.4-setup.exe"
                 onClick={() => {
                   window.open(
-                    "https://github.com/lightningrodlabs/acorn-desktop/releases/download/v11.3.2/org.lightningrodlabs.acorn-11.3.2-setup.exe",
+                    "https://github.com/lightningrodlabs/acorn-desktop/releases/download/v11.3.4/org.lightningrodlabs.acorn-11.3.4-setup.exe",
                     "_blank"
                   );
                 }}
